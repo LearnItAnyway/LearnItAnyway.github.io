@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>LIA&#39;log</title>
-    <link>https://learnitanyway.github.io/</link>
-    <description>Recent content on LIA&#39;log</description>
+    <title>scrap on LIA&#39;log</title>
+    <link>https://learnitanyway.github.io/posts/scrap/</link>
+    <description>Recent content in scrap on LIA&#39;log</description>
     <image>
       <title>LIA&#39;log</title>
       <url>https://learnitanyway.github.io/images/papermod-cover.png</url>
@@ -11,8 +11,8 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 13 Jan 2024 15:21:05 +0900</lastBuildDate>
-    <atom:link href="https://learnitanyway.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 14 Jan 2024 12:53:10 +0900</lastBuildDate>
+    <atom:link href="https://learnitanyway.github.io/posts/scrap/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[scrap] DPO</title>
       <link>https://learnitanyway.github.io/posts/scrap/dpo/</link>

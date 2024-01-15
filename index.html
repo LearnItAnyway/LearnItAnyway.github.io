@@ -2,7 +2,27 @@
 <html lang="en" dir="auto">
 
 <head>
-	<meta name="generator" content="Hugo 0.121.1"><meta charset="utf-8">
+	<meta name="generator" content="Hugo 0.121.1">
+	<script>
+	MathJax = {
+	  tex: {
+		inlineMath: [['$', '$'], ['\\(', '\\)']]
+	  },
+	  startup: {
+		ready: () => {
+		  MathJax.startup.defaultReady();
+		  document.querySelectorAll("script[type='math/tex']").forEach((node) => {
+			MathJax.tex2chtmlPromise(node.textContent, {display: false}).then((html) => {
+			  node.parentNode.replaceChild(html, node);
+			});
+		  });
+		}
+	  }
+	};
+	</script>	
+
+	<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+	<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
@@ -20,6 +40,7 @@
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
 <link rel="alternate" type="application/rss+xml" href="https://learnitanyway.github.io/index.xml">
+<link rel="alternate" type="application/json" href="https://learnitanyway.github.io/index.json">
 <noscript>
     <style>
         #theme-toggle,
@@ -59,9 +80,11 @@
 </noscript><meta property="og:title" content="" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://learnitanyway.github.io/" />
+<meta property="og:url" content="https://learnitanyway.github.io/" /><meta property="og:image" content="https://learnitanyway.github.io/images/papermod-cover.png"/>
 
-<meta name="twitter:card" content="summary"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://learnitanyway.github.io/images/papermod-cover.png"/>
+
 <meta name="twitter:title" content=""/>
 <meta name="twitter:description" content=""/>
 
@@ -95,7 +118,7 @@
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://learnitanyway.github.io" accesskey="h" title="LIA&#39;log (Alt + H)">LIA&#39;log</a>
+            <a href="https://learnitanyway.github.io/" accesskey="h" title="LIA&#39;log (Alt + H)">LIA&#39;log</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -120,32 +143,77 @@
             </div>
         </div>
         <ul id="menu">
+            <li>
+                <a href="https://learnitanyway.github.io/archives" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/LearnItAnyway" title="Github">
+                    <span>Github</span>&nbsp;
+                    <svg fill="none" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round" stroke-width="2.5" viewBox="0 0 24 24" height="12" width="12">
+                        <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
+                        <path d="M15 3h6v6"></path>
+                        <path d="M10 14L21 3"></path>
+                    </svg>
+                </a>
+            </li>
+            <li>
+                <a href="https://learnitanyway.github.io/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
         </ul>
     </nav>
 </header>
 <main class="main"> 
+<article class="first-entry home-info">
+    <header class="entry-header">
+        <h1>LearnItAnyway&rsquo;s Log</h1>
+    </header>
+    <div class="entry-content">
+        <p>Welcome to my <strong>LIA&rsquo;log</strong>!</p>
+<p>This log is for my understanding and project my current interests. I&rsquo;m fascinated by the generative AI.  For now, I&rsquo;m now sure what is the purpose of this log,  but I&rsquo;ll broaden and organize my understanding. As I got some goal, I&rsquo;ll carry out the project that will be updated on my GitHub.</p>
 
-<article class="first-entry"> 
+    </div>
+    <footer class="entry-footer">
+        <div class="social-icons" >
+</div>
+
+    </footer>
+</article>
+
+<article class="post-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">My First Post
-      <span class="entry-hint" title="Draft">
-        <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" fill="currentColor">
-          <path
-            d="M160-410v-60h300v60H160Zm0-165v-60h470v60H160Zm0-165v-60h470v60H160Zm360 580v-123l221-220q9-9 20-13t22-4q12 0 23 4.5t20 13.5l37 37q9 9 13 20t4 22q0 11-4.5 22.5T862.09-380L643-160H520Zm300-263-37-37 37 37ZM580-220h38l121-122-18-19-19-18-122 121v38Zm141-141-19-18 37 37-18-19Z" />
-        </svg>
-      </span>
+    <h2 class="entry-hint-parent">[scrap] DPO
     </h2>
   </header>
   <div class="entry-content">
-    <p></p>
+    <p>Introduction Direct preference optimization (DPO) is the methods to train the text generating LM model from the human preference dataset. The relationship between the preference and the reward is given from Bardley-Terry model as
+$$ \begin{align} p^* (y_1&gt;y_2|x) = \frac{\exp(r^* (x, y_1))}{\exp(r^* (x, y_1))&#43;\exp(r^* (x, y_2))} \end{align} $$
+Simply put, the better output (one that has the higher reward) is more likely to be preffered. Based on this reward, the LM can be trained to maximize the reward of the output....</p>
   </div>
-  <footer class="entry-footer"><span title='2024-01-10 20:30:28 +0900 KST'>January 10, 2024</span></footer>
-  <a class="entry-link" aria-label="post link to My First Post" href="https://learnitanyway.github.io/posts/my-first-post/"></a>
+  <footer class="entry-footer"><span title='2024-01-14 12:53:10 +0900 KST'>January 14, 2024</span>&nbsp;·&nbsp;2 min</footer>
+  <a class="entry-link" aria-label="post link to [scrap] DPO" href="https://learnitanyway.github.io/posts/scrap/dpo/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">[scrap] Encodec
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Summary Encodec is neural codec for the audio compression. The github code and the pretrained models are provided by meta. The overall structure is given as follows The model can be used for
+Audio compression Discrete audio token prediction as in VALL-E or Bark </p>
+  </div>
+  <footer class="entry-footer"><span title='2024-01-13 12:47:47 +0900 KST'>January 13, 2024</span>&nbsp;·&nbsp;1 min</footer>
+  <a class="entry-link" aria-label="post link to [scrap] Encodec" href="https://learnitanyway.github.io/posts/scrap/encodec/"></a>
 </article>
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="https://learnitanyway.github.io">LIA&#39;log</a></span>
+    <span>&copy; 2024 <a href="https://learnitanyway.github.io/">LIA&#39;log</a></span>
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &

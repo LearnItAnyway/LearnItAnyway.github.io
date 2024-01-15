@@ -25,11 +25,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>Tags | LIA&#39;log</title>
+<title>scrap | LIA&#39;log</title>
 <meta name="keywords" content="">
-<meta name="description" content="">
+<meta name="description" content="Contains ideas and knowledge in unorganized form. These posts are waiting to be transformed into the projects or the understanding. For now, these can be chaotic, wierd, or perhaps wrong, but as the time goes on, it will be better.">
 <meta name="author" content="">
-<link rel="canonical" href="https://learnitanyway.github.io/tags/">
+<link rel="canonical" href="https://learnitanyway.github.io/posts/scrap/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.b609c58d5c11bb90b1a54e04005d74ad1ddf22165eb79f5533967e57df9c3b50.css" integrity="sha256-tgnFjVwRu5CxpU4EAF10rR3fIhZet59VM5Z&#43;V9&#43;cO1A=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://learnitanyway.github.io/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://learnitanyway.github.io/favicon-16x16.png">
@@ -38,7 +38,7 @@
 <link rel="mask-icon" href="https://learnitanyway.github.io/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" type="application/rss+xml" href="https://learnitanyway.github.io/tags/index.xml">
+<link rel="alternate" type="application/rss+xml" href="https://learnitanyway.github.io/posts/scrap/index.xml">
 <noscript>
     <style>
         #theme-toggle,
@@ -75,17 +75,38 @@
         }
 
     </style>
-</noscript><meta property="og:title" content="Tags" />
-<meta property="og:description" content="" />
+</noscript><meta property="og:title" content="scrap" />
+<meta property="og:description" content="Contains ideas and knowledge in unorganized form. These posts are waiting to be transformed into the projects or the understanding. For now, these can be chaotic, wierd, or perhaps wrong, but as the time goes on, it will be better." />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://learnitanyway.github.io/tags/" /><meta property="og:image" content="https://learnitanyway.github.io/images/papermod-cover.png"/>
+<meta property="og:url" content="https://learnitanyway.github.io/posts/scrap/" /><meta property="og:image" content="https://learnitanyway.github.io/images/papermod-cover.png"/>
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://learnitanyway.github.io/images/papermod-cover.png"/>
 
-<meta name="twitter:title" content="Tags"/>
-<meta name="twitter:description" content=""/>
+<meta name="twitter:title" content="scrap"/>
+<meta name="twitter:description" content="Contains ideas and knowledge in unorganized form. These posts are waiting to be transformed into the projects or the understanding. For now, these can be chaotic, wierd, or perhaps wrong, but as the time goes on, it will be better."/>
 
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://learnitanyway.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "scrap",
+      "item": "https://learnitanyway.github.io/posts/scrap/"
+    }
+  ]
+}
+</script>
 </head>
 
 <body class="list" id="top">
@@ -146,25 +167,56 @@
             </li>
             <li>
                 <a href="https://learnitanyway.github.io/tags/" title="Tags">
-                    <span class="active">Tags</span>
+                    <span>Tags</span>
                 </a>
             </li>
         </ul>
     </nav>
 </header>
-<main class="main">
-<header class="page-header">
-    <h1>Tags</h1>
+<main class="main"> 
+<header class="page-header"><div class="breadcrumbs"><a href="https://learnitanyway.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://learnitanyway.github.io/posts/">Posts</a></div>
+  <h1>
+    scrap
+    <a href="/posts/scrap/index.xml" title="RSS" aria-label="RSS">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" height="23">
+        <path d="M4 11a9 9 0 0 1 9 9" />
+        <path d="M4 4a16 16 0 0 1 16 16" />
+        <circle cx="5" cy="19" r="1" />
+      </svg>
+    </a>
+  </h1>
+  <div class="post-description">
+    Contains ideas and knowledge in unorganized form. These posts are waiting to be transformed into the projects or the understanding. For now, these can be chaotic, wierd, or perhaps wrong, but as the time goes on, it will be better.
+  </div>
 </header>
 
-<ul class="terms-tags">
-    <li>
-        <a href="https://learnitanyway.github.io/tags/rlhf/">rlhf <sup><strong><sup>1</sup></strong></sup> </a>
-    </li>
-    <li>
-        <a href="https://learnitanyway.github.io/tags/scrap/">scrap <sup><strong><sup>2</sup></strong></sup> </a>
-    </li>
-</ul>
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">[scrap] DPO
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Introduction Direct preference optimization (DPO) is the methods to train the text generating LM model from the human preference dataset. The relationship between the preference and the reward is given from Bardley-Terry model as
+$$ \begin{align} p^* (y_1&gt;y_2|x) = \frac{\exp(r^* (x, y_1))}{\exp(r^* (x, y_1))&#43;\exp(r^* (x, y_2))} \end{align} $$
+Simply put, the better output (one that has the higher reward) is more likely to be preffered. Based on this reward, the LM can be trained to maximize the reward of the output....</p>
+  </div>
+  <footer class="entry-footer"><span title='2024-01-14 12:53:10 +0900 KST'>January 14, 2024</span>&nbsp;·&nbsp;2 min</footer>
+  <a class="entry-link" aria-label="post link to [scrap] DPO" href="https://learnitanyway.github.io/posts/scrap/dpo/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">[scrap] Encodec
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Summary Encodec is neural codec for the audio compression. The github code and the pretrained models are provided by meta. The overall structure is given as follows The model can be used for
+Audio compression Discrete audio token prediction as in VALL-E or Bark </p>
+  </div>
+  <footer class="entry-footer"><span title='2024-01-13 12:47:47 +0900 KST'>January 13, 2024</span>&nbsp;·&nbsp;1 min</footer>
+  <a class="entry-link" aria-label="post link to [scrap] Encodec" href="https://learnitanyway.github.io/posts/scrap/encodec/"></a>
+</article>
     </main>
     
 <footer class="footer">

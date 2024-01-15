@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>LIA&#39;log</title>
-    <link>https://learnitanyway.github.io/</link>
-    <description>Recent content on LIA&#39;log</description>
+    <title>rlhf on LIA&#39;log</title>
+    <link>https://learnitanyway.github.io/tags/rlhf/</link>
+    <description>Recent content in rlhf on LIA&#39;log</description>
     <image>
       <title>LIA&#39;log</title>
       <url>https://learnitanyway.github.io/images/papermod-cover.png</url>
@@ -11,8 +11,8 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 13 Jan 2024 15:21:05 +0900</lastBuildDate>
-    <atom:link href="https://learnitanyway.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 14 Jan 2024 12:53:10 +0900</lastBuildDate>
+    <atom:link href="https://learnitanyway.github.io/tags/rlhf/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[scrap] DPO</title>
       <link>https://learnitanyway.github.io/posts/scrap/dpo/</link>
@@ -21,14 +21,6 @@
       <description>Introduction Direct preference optimization (DPO) is the methods to train the text generating LM model from the human preference dataset. The relationship between the preference and the reward is given from Bardley-Terry model as
 $$ \begin{align} p^* (y_1&amp;gt;y_2|x) = \frac{\exp(r^* (x, y_1))}{\exp(r^* (x, y_1))+\exp(r^* (x, y_2))} \end{align} $$
 Simply put, the better output (one that has the higher reward) is more likely to be preffered. Based on this reward, the LM can be trained to maximize the reward of the output.</description>
-    </item>
-    <item>
-      <title>[scrap] Encodec</title>
-      <link>https://learnitanyway.github.io/posts/scrap/encodec/</link>
-      <pubDate>Sat, 13 Jan 2024 12:47:47 +0900</pubDate>
-      <guid>https://learnitanyway.github.io/posts/scrap/encodec/</guid>
-      <description>Summary Encodec is neural codec for the audio compression. The github code and the pretrained models are provided by meta. The overall structure is given as follows The model can be used for
-Audio compression Discrete audio token prediction as in VALL-E or Bark </description>
     </item>
   </channel>
 </rss>

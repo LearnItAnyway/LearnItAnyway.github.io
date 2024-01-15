@@ -4,16 +4,14 @@
     <title>Posts on LIA&#39;log</title>
     <link>https://learnitanyway.github.io/posts/</link>
     <description>Recent content in Posts on LIA&#39;log</description>
+    <image>
+      <title>LIA&#39;log</title>
+      <url>https://learnitanyway.github.io/images/papermod-cover.png</url>
+      <link>https://learnitanyway.github.io/images/papermod-cover.png</link>
+    </image>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Wed, 10 Jan 2024 20:30:28 +0900</lastBuildDate>
+    <language>en</language>
+    <lastBuildDate>Sun, 14 Jan 2024 12:53:10 +0900</lastBuildDate>
     <atom:link href="https://learnitanyway.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>My First Post</title>
-      <link>https://learnitanyway.github.io/posts/my-first-post/</link>
-      <pubDate>Wed, 10 Jan 2024 20:30:28 +0900</pubDate>
-      <guid>https://learnitanyway.github.io/posts/my-first-post/</guid>
-      <description></description>
-    </item>
   </channel>
 </rss>
