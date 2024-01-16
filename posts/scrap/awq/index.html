@@ -25,13 +25,13 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>[scrap] DPO - direct preference optimization  | LIA&#39;log</title>
-<meta name="keywords" content="rlhf, scrap">
-<meta name="description" content="Introduction Direct preference optimization (DPO) is the methods to train the text generating LM model from the human preference dataset. The relationship between the preference and the reward is given from Bardley-Terry model as
-$$ \begin{align} p^* (y_1&gt;y_2|x) = \frac{\exp(r^* (x, y_1))}{\exp(r^* (x, y_1))&#43;\exp(r^* (x, y_2))} \end{align} $$
-Simply put, the better output (one that has the higher reward) is more likely to be preffered. Based on this reward, the LM can be trained to maximize the reward of the output.">
+<title>[scrap] AWQ - activation-aware weight quantization | LIA&#39;log</title>
+<meta name="keywords" content="quantization">
+<meta name="description" content="Introduction Quantization methods map a floating poitn number into the integer. E.g., float 16 can be maps to the int 4 with a certain amount of quantization error, where both the memory usage and inference speed can be improved. Among them, activation-aware weight quantization (AWQ) scale the weight considering the activation of the group of values.
+Method Motivation of activation-aware weight quantization is that
+Some weight are more salient than the other Considering the activation not the weight, the introducing some scaler can be improved The quantization function in AWQ is defined as">
 <meta name="author" content="">
-<link rel="canonical" href="https://learnitanyway.github.io/posts/scrap/dpo/">
+<link rel="canonical" href="https://learnitanyway.github.io/posts/scrap/awq/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.b609c58d5c11bb90b1a54e04005d74ad1ddf22165eb79f5533967e57df9c3b50.css" integrity="sha256-tgnFjVwRu5CxpU4EAF10rR3fIhZet59VM5Z&#43;V9&#43;cO1A=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://learnitanyway.github.io/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://learnitanyway.github.io/favicon-16x16.png">
@@ -76,22 +76,22 @@ Simply put, the better output (one that has the higher reward) is more likely to
         }
 
     </style>
-</noscript><meta property="og:title" content="[scrap] DPO - direct preference optimization " />
-<meta property="og:description" content="Introduction Direct preference optimization (DPO) is the methods to train the text generating LM model from the human preference dataset. The relationship between the preference and the reward is given from Bardley-Terry model as
-$$ \begin{align} p^* (y_1&gt;y_2|x) = \frac{\exp(r^* (x, y_1))}{\exp(r^* (x, y_1))&#43;\exp(r^* (x, y_2))} \end{align} $$
-Simply put, the better output (one that has the higher reward) is more likely to be preffered. Based on this reward, the LM can be trained to maximize the reward of the output." />
+</noscript><meta property="og:title" content="[scrap] AWQ - activation-aware weight quantization" />
+<meta property="og:description" content="Introduction Quantization methods map a floating poitn number into the integer. E.g., float 16 can be maps to the int 4 with a certain amount of quantization error, where both the memory usage and inference speed can be improved. Among them, activation-aware weight quantization (AWQ) scale the weight considering the activation of the group of values.
+Method Motivation of activation-aware weight quantization is that
+Some weight are more salient than the other Considering the activation not the weight, the introducing some scaler can be improved The quantization function in AWQ is defined as" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://learnitanyway.github.io/posts/scrap/dpo/" /><meta property="og:image" content="https://learnitanyway.github.io/images/papermod-cover.png"/><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2024-01-14T12:53:10+09:00" />
-<meta property="article:modified_time" content="2024-01-14T12:53:10+09:00" />
+<meta property="og:url" content="https://learnitanyway.github.io/posts/scrap/awq/" /><meta property="og:image" content="https://learnitanyway.github.io/images/papermod-cover.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-01-15T11:28:06+09:00" />
+<meta property="article:modified_time" content="2024-01-15T11:28:06+09:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://learnitanyway.github.io/images/papermod-cover.png"/>
 
-<meta name="twitter:title" content="[scrap] DPO - direct preference optimization "/>
-<meta name="twitter:description" content="Introduction Direct preference optimization (DPO) is the methods to train the text generating LM model from the human preference dataset. The relationship between the preference and the reward is given from Bardley-Terry model as
-$$ \begin{align} p^* (y_1&gt;y_2|x) = \frac{\exp(r^* (x, y_1))}{\exp(r^* (x, y_1))&#43;\exp(r^* (x, y_2))} \end{align} $$
-Simply put, the better output (one that has the higher reward) is more likely to be preffered. Based on this reward, the LM can be trained to maximize the reward of the output."/>
+<meta name="twitter:title" content="[scrap] AWQ - activation-aware weight quantization"/>
+<meta name="twitter:description" content="Introduction Quantization methods map a floating poitn number into the integer. E.g., float 16 can be maps to the int 4 with a certain amount of quantization error, where both the memory usage and inference speed can be improved. Among them, activation-aware weight quantization (AWQ) scale the weight considering the activation of the group of values.
+Method Motivation of activation-aware weight quantization is that
+Some weight are more salient than the other Considering the activation not the weight, the introducing some scaler can be improved The quantization function in AWQ is defined as"/>
 
 
 <script type="application/ld+json">
@@ -114,8 +114,8 @@ Simply put, the better output (one that has the higher reward) is more likely to
     {
       "@type": "ListItem",
       "position":  3 ,
-      "name": "[scrap] DPO - direct preference optimization ",
-      "item": "https://learnitanyway.github.io/posts/scrap/dpo/"
+      "name": "[scrap] AWQ - activation-aware weight quantization",
+      "item": "https://learnitanyway.github.io/posts/scrap/awq/"
     }
   ]
 }
@@ -124,20 +124,20 @@ Simply put, the better output (one that has the higher reward) is more likely to
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "[scrap] DPO - direct preference optimization ",
-  "name": "[scrap] DPO - direct preference optimization ",
-  "description": "Introduction Direct preference optimization (DPO) is the methods to train the text generating LM model from the human preference dataset. The relationship between the preference and the reward is given from Bardley-Terry model as\n$$ \\begin{align} p^* (y_1\u0026gt;y_2|x) = \\frac{\\exp(r^* (x, y_1))}{\\exp(r^* (x, y_1))+\\exp(r^* (x, y_2))} \\end{align} $$\nSimply put, the better output (one that has the higher reward) is more likely to be preffered. Based on this reward, the LM can be trained to maximize the reward of the output.",
+  "headline": "[scrap] AWQ - activation-aware weight quantization",
+  "name": "[scrap] AWQ - activation-aware weight quantization",
+  "description": "Introduction Quantization methods map a floating poitn number into the integer. E.g., float 16 can be maps to the int 4 with a certain amount of quantization error, where both the memory usage and inference speed can be improved. Among them, activation-aware weight quantization (AWQ) scale the weight considering the activation of the group of values.\nMethod Motivation of activation-aware weight quantization is that\nSome weight are more salient than the other Considering the activation not the weight, the introducing some scaler can be improved The quantization function in AWQ is defined as",
   "keywords": [
-    "rlhf", "scrap"
+    "quantization"
   ],
-  "articleBody": "Introduction Direct preference optimization (DPO) is the methods to train the text generating LM model from the human preference dataset. The relationship between the preference and the reward is given from Bardley-Terry model as\n$$ \\begin{align} p^* (y_1\u003ey_2|x) = \\frac{\\exp(r^* (x, y_1))}{\\exp(r^* (x, y_1))+\\exp(r^* (x, y_2))} \\end{align} $$\nSimply put, the better output (one that has the higher reward) is more likely to be preffered. Based on this reward, the LM can be trained to maximize the reward of the output.\n$$ \\max_{\\pi_\\theta} \\mathbb{E}_ {x \\sim\\mathcal{D}, y\\sim\\pi_{\\theta}(y|x)} [r_\\phi(x, y)] - \\beta \\mathbb{D}_ \\text{KL}[\\pi_{\\theta}(y|x)||\\pi_\\text{ref}(y|x)] $$\nHere, $\\pi_\\theta$ is the LM and $r_\\phi$ is is reward function (that should be trained). In RLHF, the KL divergence between the LM and reference LM is used as well. KL divergence prevent the LM from being too defferent compared to the reference LM. From some RL work, the optimal solution for the problem above is given as $$ \\pi(y|x) = \\frac{1}{Z(x)} \\pi_\\text{ref}(y|x)\\exp\\left(\\frac{1}{\\beta}r(x, y)\\right), $$ where $Z(x)=\\sum_ y \\left(\\pi_\\text{ref}(y|x)\\exp\\left(\\frac{1}{\\beta}r(x, y)\\right)\\right)$ is the partition function. Take the log for the both side, the relationship between the optimal policy and the reward is given as $$ r(x, y) = \\beta\\log\\left(\\frac{\\pi(y|x)}{\\pi_\\text{ref}(y|x)}\\right)+\\beta\\log Z(x). $$ Using this reward function, the preference can be rewritten as $$ p^ * (y_1\u003ey_2|x) = \\frac{1}{1+\\exp\\left(\\beta\\log\\left(\\frac{\\pi(y_2|x)}{\\pi_\\text{ref}(y_2|x)}\\right) - \\beta\\log\\left(\\frac{\\pi(y_1|x)}{\\pi_\\text{ref}(y_1|x)}\\right)\\right)} $$ Then, the objective is $$ \\begin{align} \\mathcal{L}_ \\text{DPO} \u0026= -\\log (p^ * (y_ 1\u003ey_ 2 | x)) \\\\ \u0026= -\\log \\left(\\beta\\log\\left(\\frac{\\pi(y_1|x)}{\\pi_\\text{ref}(y_1|x)}\\right) - \\beta\\log\\left(\\frac{\\pi(y_2|x)}{\\pi_\\text{ref}(y_2|x)}\\right)\\right) \\end{align} $$ DPO make the model to output the preferred data $y_ 1$ rather than rejected one $y_ 2$.\n",
-  "wordCount" : "255",
+  "articleBody": "Introduction Quantization methods map a floating poitn number into the integer. E.g., float 16 can be maps to the int 4 with a certain amount of quantization error, where both the memory usage and inference speed can be improved. Among them, activation-aware weight quantization (AWQ) scale the weight considering the activation of the group of values.\nMethod Motivation of activation-aware weight quantization is that\nSome weight are more salient than the other Considering the activation not the weight, the introducing some scaler can be improved The quantization function in AWQ is defined as\n$$ \\begin{align} Q(\\textbf{w}) \u0026= \\Delta \\cdot \\text{Round} (\\frac{\\textbf{w}}{\\Delta }), \\Delta = \\frac{\\max(|\\textbf{w}|)}{2^ {N-1}} \\\\ \\textbf{y} \u0026= \\textbf{w}\\textbf{x} \\approx Q(\\textbf{w})\\textbf{x} \\end{align} $$ The idea is to reduce the upper part of the $\\Delta$, i.e., $\\max(|\\textbf{w}|)$. with the scaler $s$, the element of the weight $w$ is quantized as $$ \\begin{align} y\\approx Q(ws) \\frac{x}{s} \u0026= \\Delta’ \\cdot \\text{Round}’ (\\frac{ws}{\\Delta})s^ {-1} \\\\ \\end{align} $$ With sufficient choThe quantization scaler $\\Delta\\approx \\Delta ‘$ for large portion of s, the quantization error will be $s^ {-1}$ which results in the better quantization.\nTo choose the scaler, the following problem can be solved $$ \\begin{align} \\text{argmin}_\\textbf{s} ||Q(\\textbf{W}\\cdot \\textbf{s})(\\textbf{s}^ {-1} \\cdot \\textbf{X}) - \\textbf{WX} || \\end{align} $$\nResults Performance - Higher performance compared with RTN and GPTQ\nSpeed - Higher speed compared with the RTN and GTPQ Also, the quantization speed is higher compared with the prior works.\n",
+  "wordCount" : "234",
   "inLanguage": "en",
-  "datePublished": "2024-01-14T12:53:10+09:00",
-  "dateModified": "2024-01-14T12:53:10+09:00",
+  "datePublished": "2024-01-15T11:28:06+09:00",
+  "dateModified": "2024-01-15T11:28:06+09:00",
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://learnitanyway.github.io/posts/scrap/dpo/"
+    "@id": "https://learnitanyway.github.io/posts/scrap/awq/"
   },
   "publisher": {
     "@type": "Organization",
@@ -221,9 +221,9 @@ Simply put, the better output (one that has the higher reward) is more likely to
   <header class="post-header">
     <div class="breadcrumbs"><a href="https://learnitanyway.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://learnitanyway.github.io/posts/">Posts</a>&nbsp;»&nbsp;<a href="https://learnitanyway.github.io/posts/scrap/">scrap</a></div>
     <h1 class="post-title entry-hint-parent">
-      [scrap] DPO - direct preference optimization 
+      [scrap] AWQ - activation-aware weight quantization
     </h1>
-    <div class="post-meta"><span title='2024-01-14 12:53:10 +0900 KST'>January 14, 2024</span>&nbsp;·&nbsp;2 min
+    <div class="post-meta"><span title='2024-01-15 11:28:06 +0900 KST'>January 15, 2024</span>&nbsp;·&nbsp;2 min
 
 </div>
   </header> <div class="toc">
@@ -234,66 +234,79 @@ Simply put, the better output (one that has the higher reward) is more likely to
 
         <div class="inner"><ul>
                 <li>
-                    <a href="#introduction" aria-label="Introduction">Introduction</a>
+                    <a href="#introduction" aria-label="Introduction">Introduction</a></li>
+                <li>
+                    <a href="#method" aria-label="Method">Method</a></li>
+                <li>
+                    <a href="#results" aria-label="Results">Results</a>
                 </li>
             </ul>
         </div>
     </details>
 </div>
 
-  <div class="post-content"><h1 id="introduction">Introduction<a hidden class="anchor" aria-hidden="true" href="#introduction">#</a></h1>
-<p>Direct preference optimization <a href="https://arxiv.org/pdf/2305.18290.pdf">(DPO)</a> is the methods to train the text generating LM model from the human preference dataset.
-The relationship between the preference and the reward is given from <a href="https://en.wikipedia.org/wiki/Bradley%E2%80%93Terry_model">Bardley-Terry model</a> as</p>
+  <div class="post-content"><h2 id="introduction">Introduction<a hidden class="anchor" aria-hidden="true" href="#introduction">#</a></h2>
+<p>Quantization methods map a floating poitn number into the integer. E.g., float 16 can be maps to the int 4 with a certain amount of quantization error, where both the memory usage and inference speed can be improved.
+Among them, activation-aware weight quantization <a href="https://arxiv.org/pdf/2306.00978.pdf">(AWQ)</a> scale the weight considering the activation of the group of values.</p>
+<h2 id="method">Method<a hidden class="anchor" aria-hidden="true" href="#method">#</a></h2>
+<p>Motivation of activation-aware weight quantization is that</p>
+<ol>
+<li>Some weight are more salient than the other</li>
+<li>Considering the activation not the weight, the introducing some scaler can be improved
+<img loading="lazy" src="/awq_ppl.png" alt=""  />
+
+<img loading="lazy" src="static/awq_ppl.png" alt=""  />
+</li>
+</ol>
+<p>The quantization function in AWQ is defined as</p>
 <p>$$
 \begin{align}
-p^* (y_1&gt;y_2|x) = \frac{\exp(r^* (x, y_1))}{\exp(r^* (x, y_1))+\exp(r^* (x, y_2))}
+Q(\textbf{w}) &amp;= \Delta \cdot \text{Round} (\frac{\textbf{w}}{\Delta }), \Delta = \frac{\max(|\textbf{w}|)}{2^ {N-1}}  \\
+\textbf{y} &amp;= \textbf{w}\textbf{x} \approx Q(\textbf{w})\textbf{x}
 \end{align}
-$$</p>
-<p>Simply put, the better output (one that has the higher reward) is more likely to be preffered. Based on this reward, the LM can be trained to maximize the reward of the output.</p>
-<p>$$
-\max_{\pi_\theta} \mathbb{E}_ {x \sim\mathcal{D}, y\sim\pi_{\theta}(y|x)}
-[r_\phi(x, y)] - \beta \mathbb{D}_ \text{KL}[\pi_{\theta}(y|x)||\pi_\text{ref}(y|x)]
-$$</p>
-<p>Here, $\pi_\theta$ is the LM and $r_\phi$ is is reward function (that should be trained). In RLHF, the KL divergence between the LM and reference LM is used as well. KL divergence prevent the LM from being too defferent compared to the reference LM.
-From some RL work, the optimal solution for the problem above is given as
 $$
-\pi(y|x) = \frac{1}{Z(x)} \pi_\text{ref}(y|x)\exp\left(\frac{1}{\beta}r(x, y)\right),
-$$
-where $Z(x)=\sum_ y \left(\pi_\text{ref}(y|x)\exp\left(\frac{1}{\beta}r(x, y)\right)\right)$ is the partition function. Take the log for the both side, the relationship between the optimal policy and the reward is given as
-$$
-r(x, y) = \beta\log\left(\frac{\pi(y|x)}{\pi_\text{ref}(y|x)}\right)+\beta\log Z(x).
-$$
-Using this reward function, the preference can be rewritten as
-$$
-p^ * (y_1&gt;y_2|x) = \frac{1}{1+\exp\left(\beta\log\left(\frac{\pi(y_2|x)}{\pi_\text{ref}(y_2|x)}\right) - \beta\log\left(\frac{\pi(y_1|x)}{\pi_\text{ref}(y_1|x)}\right)\right)}
-$$
-Then, the objective is
+The idea is to reduce the upper part of the $\Delta$, i.e., $\max(|\textbf{w}|)$.
+with the scaler $s$, the element of the weight $w$ is quantized as
 $$
 \begin{align}
-\mathcal{L}_ \text{DPO} &amp;= -\log (p^ * (y_ 1&gt;y_ 2 | x)) \\
-&amp;= -\log \left(\beta\log\left(\frac{\pi(y_1|x)}{\pi_\text{ref}(y_1|x)}\right) - \beta\log\left(\frac{\pi(y_2|x)}{\pi_\text{ref}(y_2|x)}\right)\right)
+y\approx Q(ws) \frac{x}{s} &amp;= \Delta&rsquo; \cdot \text{Round}&rsquo; (\frac{ws}{\Delta})s^ {-1} \\
 \end{align}
 $$
-DPO make the model to output the preferred data $y_ 1$ rather than rejected one $y_ 2$.</p>
+With sufficient choThe quantization scaler $\Delta\approx \Delta &lsquo;$  for large portion of s, the quantization error will be $s^ {-1}$ which results in the better quantization.</p>
+<p>To choose the scaler, the following problem can be solved
+$$
+\begin{align}
+\text{argmin}_\textbf{s} ||Q(\textbf{W}\cdot \textbf{s})(\textbf{s}^ {-1} \cdot \textbf{X}) - \textbf{WX} ||
+\end{align}
+$$</p>
+<h2 id="results">Results<a hidden class="anchor" aria-hidden="true" href="#results">#</a></h2>
+<p>Performance - Higher performance compared with RTN and GPTQ</p>
+<p><img loading="lazy" src="static/awq_performance.png" alt=""  />
+ <img loading="lazy" src="/awq_performance.png" alt=""  />
+
+Speed - Higher speed compared with the RTN and GTPQ
+<img loading="lazy" src="static/awq_speed.png" alt=""  />
+ <img loading="lazy" src="/awq_speed.png" alt=""  />
+
+Also, the quantization speed is higher compared with the prior works.</p>
 
 
   </div>
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="https://learnitanyway.github.io/tags/rlhf/">rlhf</a></li>
-      <li><a href="https://learnitanyway.github.io/tags/scrap/">scrap</a></li>
+      <li><a href="https://learnitanyway.github.io/tags/quantization/">quantization</a></li>
     </ul>
 <nav class="paginav">
-  <a class="prev" href="https://learnitanyway.github.io/posts/scrap/awq/">
+  <a class="prev" href="https://learnitanyway.github.io/posts/scrap/diff_in_encodec/">
     <span class="title">« Prev</span>
     <br>
-    <span>[scrap] AWQ - activation-aware weight quantization</span>
+    <span>[test] Difference between encodec and descript audio codec</span>
   </a>
-  <a class="next" href="https://learnitanyway.github.io/posts/scrap/encodec/">
+  <a class="next" href="https://learnitanyway.github.io/posts/scrap/dpo/">
     <span class="title">Next »</span>
     <br>
-    <span>[scrap] Encodec</span>
+    <span>[scrap] DPO - direct preference optimization </span>
   </a>
 </nav>
 

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>quantization on LIA&#39;log</title>
+    <link>https://learnitanyway.github.io/tags/quantization/</link>
+    <description>Recent content in quantization on LIA&#39;log</description>
+    <image>
+      <title>LIA&#39;log</title>
+      <url>https://learnitanyway.github.io/images/papermod-cover.png</url>
+      <link>https://learnitanyway.github.io/images/papermod-cover.png</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 15 Jan 2024 11:28:06 +0900</lastBuildDate>
+    <atom:link href="https://learnitanyway.github.io/tags/quantization/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[scrap] AWQ - activation-aware weight quantization</title>
+      <link>https://learnitanyway.github.io/posts/scrap/awq/</link>
+      <pubDate>Mon, 15 Jan 2024 11:28:06 +0900</pubDate>
+      <guid>https://learnitanyway.github.io/posts/scrap/awq/</guid>
+      <description>Introduction Quantization methods map a floating poitn number into the integer. E.g., float 16 can be maps to the int 4 with a certain amount of quantization error, where both the memory usage and inference speed can be improved. Among them, activation-aware weight quantization (AWQ) scale the weight considering the activation of the group of values.
+Method Motivation of activation-aware weight quantization is that
+Some weight are more salient than the other Considering the activation not the weight, the introducing some scaler can be improved The quantization function in AWQ is defined as</description>
+    </item>
+  </channel>
+</rss>

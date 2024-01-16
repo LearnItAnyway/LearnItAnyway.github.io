@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>test on LIA&#39;log</title>
+    <link>https://learnitanyway.github.io/tags/test/</link>
+    <description>Recent content in test on LIA&#39;log</description>
+    <image>
+      <title>LIA&#39;log</title>
+      <url>https://learnitanyway.github.io/images/papermod-cover.png</url>
+      <link>https://learnitanyway.github.io/images/papermod-cover.png</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 16 Jan 2024 09:54:10 +0900</lastBuildDate>
+    <atom:link href="https://learnitanyway.github.io/tags/test/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[test] Difference between encodec and descript audio codec</title>
+      <link>https://learnitanyway.github.io/posts/scrap/diff_in_encodec/</link>
+      <pubDate>Tue, 16 Jan 2024 09:54:10 +0900</pubDate>
+      <guid>https://learnitanyway.github.io/posts/scrap/diff_in_encodec/</guid>
+      <description>Motivation During Dec., 2023, I&amp;rsquo;v pretrain the VALL-E model for Korean. Specifically, the pretrained model is released at the huggingface, however, as the pronounciation of the model and voice cloning ability is somewhat low due to 2k hours (from one data source) of the training data. To improve further, a new model has been trained with 8k hours (from 3 data sources) of the data, however, it shows much lower performance compared with the prior model, even though the almost every setup are identical.</description>
+    </item>
+  </channel>
+</rss>

@@ -11,10 +11,26 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 14 Jan 2024 12:53:10 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 16 Jan 2024 09:54:10 +0900</lastBuildDate>
     <atom:link href="https://learnitanyway.github.io/posts/scrap/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>[scrap] DPO</title>
+      <title>[test] Difference between encodec and descript audio codec</title>
+      <link>https://learnitanyway.github.io/posts/scrap/diff_in_encodec/</link>
+      <pubDate>Tue, 16 Jan 2024 09:54:10 +0900</pubDate>
+      <guid>https://learnitanyway.github.io/posts/scrap/diff_in_encodec/</guid>
+      <description>Motivation During Dec., 2023, I&amp;rsquo;v pretrain the VALL-E model for Korean. Specifically, the pretrained model is released at the huggingface, however, as the pronounciation of the model and voice cloning ability is somewhat low due to 2k hours (from one data source) of the training data. To improve further, a new model has been trained with 8k hours (from 3 data sources) of the data, however, it shows much lower performance compared with the prior model, even though the almost every setup are identical.</description>
+    </item>
+    <item>
+      <title>[scrap] AWQ - activation-aware weight quantization</title>
+      <link>https://learnitanyway.github.io/posts/scrap/awq/</link>
+      <pubDate>Mon, 15 Jan 2024 11:28:06 +0900</pubDate>
+      <guid>https://learnitanyway.github.io/posts/scrap/awq/</guid>
+      <description>Introduction Quantization methods map a floating poitn number into the integer. E.g., float 16 can be maps to the int 4 with a certain amount of quantization error, where both the memory usage and inference speed can be improved. Among them, activation-aware weight quantization (AWQ) scale the weight considering the activation of the group of values.
+Method Motivation of activation-aware weight quantization is that
+Some weight are more salient than the other Considering the activation not the weight, the introducing some scaler can be improved The quantization function in AWQ is defined as</description>
+    </item>
+    <item>
+      <title>[scrap] DPO - direct preference optimization </title>
       <link>https://learnitanyway.github.io/posts/scrap/dpo/</link>
       <pubDate>Sun, 14 Jan 2024 12:53:10 +0900</pubDate>
       <guid>https://learnitanyway.github.io/posts/scrap/dpo/</guid>
