@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head>
+	<script>
+	MathJax = {
+	  tex: {
+		inlineMath: [['$', '$'], ['\\(', '\\)']]
+	  },
+	  startup: {
+		ready: () => {
+		  MathJax.startup.defaultReady();
+		  document.querySelectorAll("script[type='math/tex']").forEach((node) => {
+			MathJax.tex2chtmlPromise(node.textContent, {display: false}).then((html) => {
+			  node.parentNode.replaceChild(html, node);
+			});
+		  });
+		}
+	  }
+	};
+	</script>	
+
+	<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+	<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>[scrap] Robotic Transformer 2 | LIA&#39;log</title>
+<meta name="keywords" content="LLM, IL">
+<meta name="description" content="Introduction Robotic Transformer 2 (RT-2) is the vision-language-action model for the robotic control trained with the imitation learning. The pretrained vision-language models are fine tuned with robotic control dataset and vision-language dataset from web have been used, where both the language response and robotic actions are the same format. The use of pretrained visual-language model enables the semantic aware policies, i.e., if the task is interpretable through the visual-language model, it can perform even though the task is not included in the trained data.">
+<meta name="author" content="">
+<link rel="canonical" href="https://learnitanyway.github.io/posts/scrap/rt-2/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.b609c58d5c11bb90b1a54e04005d74ad1ddf22165eb79f5533967e57df9c3b50.css" integrity="sha256-tgnFjVwRu5CxpU4EAF10rR3fIhZet59VM5Z&#43;V9&#43;cO1A=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://learnitanyway.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://learnitanyway.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://learnitanyway.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://learnitanyway.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://learnitanyway.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="[scrap] Robotic Transformer 2" />
+<meta property="og:description" content="Introduction Robotic Transformer 2 (RT-2) is the vision-language-action model for the robotic control trained with the imitation learning. The pretrained vision-language models are fine tuned with robotic control dataset and vision-language dataset from web have been used, where both the language response and robotic actions are the same format. The use of pretrained visual-language model enables the semantic aware policies, i.e., if the task is interpretable through the visual-language model, it can perform even though the task is not included in the trained data." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://learnitanyway.github.io/posts/scrap/rt-2/" /><meta property="og:image" content="https://learnitanyway.github.io/images/papermod-cover.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-01-18T20:55:20+09:00" />
+<meta property="article:modified_time" content="2024-01-18T20:55:20+09:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://learnitanyway.github.io/images/papermod-cover.png"/>
+
+<meta name="twitter:title" content="[scrap] Robotic Transformer 2"/>
+<meta name="twitter:description" content="Introduction Robotic Transformer 2 (RT-2) is the vision-language-action model for the robotic control trained with the imitation learning. The pretrained vision-language models are fine tuned with robotic control dataset and vision-language dataset from web have been used, where both the language response and robotic actions are the same format. The use of pretrained visual-language model enables the semantic aware policies, i.e., if the task is interpretable through the visual-language model, it can perform even though the task is not included in the trained data."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://learnitanyway.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "scrap",
+      "item": "https://learnitanyway.github.io/posts/scrap/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "[scrap] Robotic Transformer 2",
+      "item": "https://learnitanyway.github.io/posts/scrap/rt-2/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "[scrap] Robotic Transformer 2",
+  "name": "[scrap] Robotic Transformer 2",
+  "description": "Introduction Robotic Transformer 2 (RT-2) is the vision-language-action model for the robotic control trained with the imitation learning. The pretrained vision-language models are fine tuned with robotic control dataset and vision-language dataset from web have been used, where both the language response and robotic actions are the same format. The use of pretrained visual-language model enables the semantic aware policies, i.e., if the task is interpretable through the visual-language model, it can perform even though the task is not included in the trained data.",
+  "keywords": [
+    "LLM", "IL"
+  ],
+  "articleBody": "Introduction Robotic Transformer 2 (RT-2) is the vision-language-action model for the robotic control trained with the imitation learning. The pretrained vision-language models are fine tuned with robotic control dataset and vision-language dataset from web have been used, where both the language response and robotic actions are the same format. The use of pretrained visual-language model enables the semantic aware policies, i.e., if the task is interpretable through the visual-language model, it can perform even though the task is not included in the trained data. Furthermore use of the same format improve the generalization.\nMethod Pretrained Vision-language Model Structure of the vision-language mode is like PaLI and LLaVA. In the paper, PaLI-X and PaLM-E are used and the key idea is not the specific model but the general vision-language model. In those model, the images are processed through the vision model, where the output of the vision model are fed into the language model as embedding tokens. Concatenated with the text embeddings, vision embeddings are handled by the several encoding layers and decoding layers. PaLI use encoder-decoder structure and LLaVA use decoder-only structure.\nRobot actions Action space consists of 6 $\\Delta$pos/$\\Delta$rot, grip, and terminal. 6 continuous and 2 discrete action. The paper discretize continuous action into 256 uniform bins. So task can be discrete token prediction. Some key point is summarized as:\n“terminate $\\Delta p_ x,\\Delta p_ y,\\Delta p_ z,\\Delta r_ x,\\Delta r_ y,\\Delta r_ z,g$” can be tokenized as [1, 128, … 127], 8 integers. The token is trained with symbol tuning. As most of the original tokens are not for the robotic tasks, during inference, the output is sampled within the valid tokens (e.g., 1~256 for pos and all range for the NLP tasks). Although the heavy models are used, with the multi-TPU cloud services, frequency of the inference is about 1~5 Hz for 55B and 5Hz for 5B model. Co-fine tuning on both the robotics and web- data helps the performance of robot actions Experiments The paper try to answer the following things:\nnew task emergent capability generalization over different parameters whether CoT improves Imitation learning with set of robotics tasks New tasks Environment with unseen object, background… Emergent capability Generalization over different parameters (model and dataset) Dataset - from scratch \u003c fine-tuning \u003c co-fine-tuning (intersting) Model - the larger is the better CoT Chain of Thought works. Some other Thought Failure Case Understanding Cases\nGrasping objects by specific parts, such as the handle Novel motions beyond what was seen in the robot data, such as wiping with a towel or tool use Dexterous or precise motions, such as folding a towel Extended reasoning requiring multiple layers of indirection Guess the reason (not in the paper and more likely wrong.)\nVision model Lack of robotics dataset It requires video-language dataset not just vision-language model Language model Training Details Model - PaLI-X, PaLM-E - not sure it is opend.. Batch size 2048 with 80K gradient steps, RT-2-PaLI-X-55B (Guess) LLaVA 7B on A6000 takes ~1sec for each data –\u003e 10~30 mins per batch? Over 10K GPU hours for the fine-tuning…? ",
+  "wordCount" : "510",
+  "inLanguage": "en",
+  "datePublished": "2024-01-18T20:55:20+09:00",
+  "dateModified": "2024-01-18T20:55:20+09:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://learnitanyway.github.io/posts/scrap/rt-2/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "LIA'log",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://learnitanyway.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://learnitanyway.github.io/" accesskey="h" title="LIA&#39;log (Alt + H)">LIA&#39;log</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://learnitanyway.github.io/archives" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/LearnItAnyway" title="Github">
+                    <span>Github</span>&nbsp;
+                    <svg fill="none" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round" stroke-width="2.5" viewBox="0 0 24 24" height="12" width="12">
+                        <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
+                        <path d="M15 3h6v6"></path>
+                        <path d="M10 14L21 3"></path>
+                    </svg>
+                </a>
+            </li>
+            <li>
+                <a href="https://learnitanyway.github.io/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://learnitanyway.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://learnitanyway.github.io/posts/">Posts</a>&nbsp;»&nbsp;<a href="https://learnitanyway.github.io/posts/scrap/">scrap</a></div>
+    <h1 class="post-title entry-hint-parent">
+      [scrap] Robotic Transformer 2
+    </h1>
+    <div class="post-meta"><span title='2024-01-18 20:55:20 +0900 KST'>January 18, 2024</span>&nbsp;·&nbsp;3 min
+
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#introduction" aria-label="Introduction">Introduction</a></li>
+                <li>
+                    <a href="#method" aria-label="Method">Method</a><ul>
+                        <ul>
+                        
+                <li>
+                    <a href="#pretrained-vision-language-model" aria-label="Pretrained Vision-language Model">Pretrained Vision-language Model</a></li>
+                <li>
+                    <a href="#robot-actions" aria-label="Robot actions">Robot actions</a></li>
+                <li>
+                    <a href="#experiments" aria-label="Experiments">Experiments</a><ul>
+                        
+                <li>
+                    <a href="#new-tasks" aria-label="New tasks">New tasks</a></li>
+                <li>
+                    <a href="#emergent-capability" aria-label="Emergent capability">Emergent capability</a></li>
+                <li>
+                    <a href="#generalization-over-different-parameters-model-and-dataset" aria-label="Generalization over different parameters (model and dataset)">Generalization over different parameters (model and dataset)</a></li>
+                <li>
+                    <a href="#cot" aria-label="CoT">CoT</a></li></ul>
+                </li></ul>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#some-other-thought" aria-label="Some other Thought">Some other Thought</a><ul>
+                        <ul>
+                        
+                <li>
+                    <a href="#failure-case-understanding" aria-label="Failure Case Understanding">Failure Case Understanding</a></li>
+                <li>
+                    <a href="#training-details" aria-label="Training Details">Training Details</a>
+                </li>
+            </ul>
+            </ul>
+            </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><h2 id="introduction">Introduction<a hidden class="anchor" aria-hidden="true" href="#introduction">#</a></h2>
+<p><a href="https://robotics-transformer2.github.io/assets/rt2.pdf">Robotic Transformer 2 (RT-2)</a> is the vision-language-action model for the robotic control trained with the imitation learning. The pretrained vision-language models are fine tuned with <code>robotic control dataset</code> and <code>vision-language dataset from web</code> have been used, where both the language response and robotic actions are <strong>the same</strong> format. The use of pretrained visual-language model enables the semantic aware policies, i.e., if the task is interpretable through the visual-language model, it can perform even though the task is not included in the trained data. Furthermore use of the same format improve the generalization.</p>
+<p><img loading="lazy" src="rt_1_2.png" alt=""  />
+<img loading="lazy" src="/rt_1_2.png" alt=""  />
+</p>
+<h2 id="method">Method<a hidden class="anchor" aria-hidden="true" href="#method">#</a></h2>
+<h4 id="pretrained-vision-language-model">Pretrained Vision-language Model<a hidden class="anchor" aria-hidden="true" href="#pretrained-vision-language-model">#</a></h4>
+<p>Structure of the vision-language mode is like <a href="https://arxiv.org/pdf/2305.18565.pdf">PaLI</a> and <a href="https://arxiv.org/abs/2304.08485">LLaVA</a>. In the paper, PaLI-X and PaLM-E are used and the key idea is not the specific model but the general vision-language model. In those model, the images are processed through the vision model, where the output of the vision model are fed into the language model as embedding tokens. Concatenated with the text embeddings, vision embeddings are handled by the several encoding layers and decoding layers. PaLI use encoder-decoder structure and LLaVA use decoder-only structure.</p>
+<h4 id="robot-actions">Robot actions<a hidden class="anchor" aria-hidden="true" href="#robot-actions">#</a></h4>
+<p>Action space consists of 6 $\Delta$pos/$\Delta$rot, grip, and terminal. 6 continuous and 2 discrete action. The paper discretize continuous action into 256 uniform bins. So task can be discrete token prediction.  Some key point is summarized as:</p>
+<ul>
+<li>&ldquo;terminate $\Delta p_ x,\Delta p_ y,\Delta p_ z,\Delta r_ x,\Delta r_ y,\Delta r_ z,g$&rdquo; can be tokenized as [1, 128, &hellip; 127], 8 integers.</li>
+<li>The token is trained with symbol tuning.</li>
+<li>As most of the original tokens are not for the robotic tasks, during inference, the output is sampled within the valid tokens (e.g., 1~256 for pos and all range for the NLP tasks).</li>
+<li>Although the heavy models are used, with the multi-TPU cloud services, frequency of the inference is about 1~5 Hz for 55B and 5Hz for 5B model.</li>
+<li>Co-fine tuning on both the robotics and web- data helps the performance of robot actions</li>
+</ul>
+<h4 id="experiments">Experiments<a hidden class="anchor" aria-hidden="true" href="#experiments">#</a></h4>
+<p>The paper try to answer the following things:</p>
+<ul>
+<li>new task</li>
+<li>emergent capability</li>
+<li>generalization over different parameters</li>
+<li>whether CoT improves
+Imitation learning with set of robotics tasks</li>
+</ul>
+<p><img loading="lazy" src="static/rt_2_2.png" alt=""  />
+<img loading="lazy" src="/rt_2_2.png" alt=""  />
+</p>
+<h5 id="new-tasks">New tasks<a hidden class="anchor" aria-hidden="true" href="#new-tasks">#</a></h5>
+<p>Environment with unseen object, background&hellip;
+<img loading="lazy" src="static/rt_2_3.png" alt=""  />
+<img loading="lazy" src="/rt_2_3.png" alt=""  />
+</p>
+<h5 id="emergent-capability">Emergent capability<a hidden class="anchor" aria-hidden="true" href="#emergent-capability">#</a></h5>
+<p><img loading="lazy" src="static/rt_2_4.png" alt=""  />
+<img loading="lazy" src="/rt_2_4.png" alt=""  />
+</p>
+<h5 id="generalization-over-different-parameters-model-and-dataset">Generalization over different parameters (model and dataset)<a hidden class="anchor" aria-hidden="true" href="#generalization-over-different-parameters-model-and-dataset">#</a></h5>
+<ul>
+<li>Dataset - from scratch &lt; fine-tuning &lt; co-fine-tuning (intersting)</li>
+<li>Model - the larger is the better
+<img loading="lazy" src="static/rt_2_5.png" alt=""  />
+<img loading="lazy" src="/rt_2_5.png" alt=""  />
+</li>
+</ul>
+<h5 id="cot">CoT<a hidden class="anchor" aria-hidden="true" href="#cot">#</a></h5>
+<p>Chain of Thought works.
+<img loading="lazy" src="static/rt_2_6.png" alt=""  />
+<img loading="lazy" src="/rt_2_6.png" alt=""  />
+</p>
+<h2 id="some-other-thought">Some other Thought<a hidden class="anchor" aria-hidden="true" href="#some-other-thought">#</a></h2>
+<h4 id="failure-case-understanding">Failure Case Understanding<a hidden class="anchor" aria-hidden="true" href="#failure-case-understanding">#</a></h4>
+<p>Cases</p>
+<ol>
+<li>Grasping objects by specific parts, such as the handle</li>
+<li>Novel motions beyond what was seen in the robot data, such as wiping with a towel or tool use</li>
+<li>Dexterous or precise motions, such as folding a towel</li>
+<li>Extended reasoning requiring multiple layers of indirection</li>
+</ol>
+<p>Guess the reason (not in the paper and more likely wrong.)</p>
+<ol>
+<li>Vision model</li>
+<li>Lack of robotics dataset</li>
+<li>It requires video-language dataset not just vision-language model</li>
+<li>Language model</li>
+</ol>
+<h4 id="training-details">Training Details<a hidden class="anchor" aria-hidden="true" href="#training-details">#</a></h4>
+<ul>
+<li>Model - PaLI-X, PaLM-E - not sure it is opend..</li>
+<li>Batch size 2048 with 80K gradient steps, RT-2-PaLI-X-55B
+<ul>
+<li>(Guess) LLaVA 7B on A6000 takes ~1sec for each data &ndash;&gt; 10~30 mins per batch?
+<ul>
+<li>Over 10K GPU hours for the fine-tuning&hellip;?</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://learnitanyway.github.io/tags/llm/">LLM</a></li>
+      <li><a href="https://learnitanyway.github.io/tags/il/">IL</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="next" href="https://learnitanyway.github.io/posts/scrap/diff_in_encodec/">
+    <span class="title">Next »</span>
+    <br>
+    <span>[test] Difference between encodec and descript audio codec</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2024 <a href="https://learnitanyway.github.io/">LIA&#39;log</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

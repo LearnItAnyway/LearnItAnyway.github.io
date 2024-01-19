@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>IL on LIA&#39;log</title>
+    <link>https://learnitanyway.github.io/tags/il/</link>
+    <description>Recent content in IL on LIA&#39;log</description>
+    <image>
+      <title>LIA&#39;log</title>
+      <url>https://learnitanyway.github.io/images/papermod-cover.png</url>
+      <link>https://learnitanyway.github.io/images/papermod-cover.png</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 18 Jan 2024 20:55:20 +0900</lastBuildDate>
+    <atom:link href="https://learnitanyway.github.io/tags/il/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[scrap] Robotic Transformer 2</title>
+      <link>https://learnitanyway.github.io/posts/scrap/rt-2/</link>
+      <pubDate>Thu, 18 Jan 2024 20:55:20 +0900</pubDate>
+      <guid>https://learnitanyway.github.io/posts/scrap/rt-2/</guid>
+      <description>Introduction Robotic Transformer 2 (RT-2) is the vision-language-action model for the robotic control trained with the imitation learning. The pretrained vision-language models are fine tuned with robotic control dataset and vision-language dataset from web have been used, where both the language response and robotic actions are the same format. The use of pretrained visual-language model enables the semantic aware policies, i.e., if the task is interpretable through the visual-language model, it can perform even though the task is not included in the trained data.</description>
+    </item>
+  </channel>
+</rss>
