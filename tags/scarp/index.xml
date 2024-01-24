@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>scarp on LIA&#39;log</title>
+    <link>https://learnitanyway.github.io/tags/scarp/</link>
+    <description>Recent content in scarp on LIA&#39;log</description>
+    <image>
+      <title>LIA&#39;log</title>
+      <url>https://learnitanyway.github.io/images/papermod-cover.png</url>
+      <link>https://learnitanyway.github.io/images/papermod-cover.png</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 24 Jan 2024 11:07:52 +0900</lastBuildDate>
+    <atom:link href="https://learnitanyway.github.io/tags/scarp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[scrap, sketch] Preference Optimization for Diffusion Model</title>
+      <link>https://learnitanyway.github.io/posts/scrap/po_for_diffusion/</link>
+      <pubDate>Wed, 24 Jan 2024 11:07:52 +0900</pubDate>
+      <guid>https://learnitanyway.github.io/posts/scrap/po_for_diffusion/</guid>
+      <description>I&amp;rsquo;v write some equations of DPO and CPO. Recently, DPO for the diffusion model has been studied, which shows the better performance for the SDXL. The DPO-Diffusion loss is given as $$ \begin{align} \mathcal{L} \leq -\log \sigma \left(\beta T \log\frac{\pi_ \theta(x_ 1^ {t-1}|x_1^ t)}{\pi_ \text{ref}(x_ 1^ {t-1}|x_1^ t)} - \beta T \log\frac{\pi_ \theta(x_ 2^ {t-1}|x_1^ t)}{\pi_ \text{ref}(x_ 2^ {t-1}|x_1^ t)}\right) \end{align} $$ where $1$ is index for the preferred data and $2$ is that for the rejected data.</description>
+    </item>
+  </channel>
+</rss>

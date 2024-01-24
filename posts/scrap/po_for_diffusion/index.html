@@ -25,12 +25,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>[scrap] CPO - contrastive preference optimization  | LIA&#39;log</title>
-<meta name="keywords" content="rlhf, scrap">
-<meta name="description" content="Introduction Contrastive preference optimization (CPO) is methods to train the text generating LM model from human preference dataset. It takes advantages of low memory cunsumption for the training and less overfitting. The loss of DPO is given as
-$$ \begin{align} \mathcal{L}_ \text{DPO} &amp;= -\log (p^ * (y_ 1&gt;y_ 2 | x)) \\ &amp;= -\log \sigma \left(\beta\log\left(\frac{\pi(y_1|x)}{\pi_\text{ref}(y_1|x)}\right) - \beta\log\left(\frac{\pi(y_2|x)}{\pi_\text{ref}(y_2|x)}\right)\right) \end{align} $$ DPO make the model to output the preferred data $y_ 1$ rather than rejected one $y_ 2$.">
+<title>[scrap, sketch] Preference Optimization for Diffusion Model | LIA&#39;log</title>
+<meta name="keywords" content="diffusion, rlhf, scarp, sketch">
+<meta name="description" content="I&rsquo;v write some equations of DPO and CPO. Recently, DPO for the diffusion model has been studied, which shows the better performance for the SDXL. The DPO-Diffusion loss is given as $$ \begin{align} \mathcal{L} \leq -\log \sigma \left(\beta T \log\frac{\pi_ \theta(x_ 1^ {t-1}|x_1^ t)}{\pi_ \text{ref}(x_ 1^ {t-1}|x_1^ t)} - \beta T \log\frac{\pi_ \theta(x_ 2^ {t-1}|x_1^ t)}{\pi_ \text{ref}(x_ 2^ {t-1}|x_1^ t)}\right) \end{align} $$ where $1$ is index for the preferred data and $2$ is that for the rejected data.">
 <meta name="author" content="">
-<link rel="canonical" href="https://learnitanyway.github.io/posts/scrap/cpo/">
+<link rel="canonical" href="https://learnitanyway.github.io/posts/scrap/po_for_diffusion/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.b609c58d5c11bb90b1a54e04005d74ad1ddf22165eb79f5533967e57df9c3b50.css" integrity="sha256-tgnFjVwRu5CxpU4EAF10rR3fIhZet59VM5Z&#43;V9&#43;cO1A=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://learnitanyway.github.io/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://learnitanyway.github.io/favicon-16x16.png">
@@ -75,20 +74,18 @@ $$ \begin{align} \mathcal{L}_ \text{DPO} &amp;= -\log (p^ * (y_ 1&gt;y_ 2 | x)) 
         }
 
     </style>
-</noscript><meta property="og:title" content="[scrap] CPO - contrastive preference optimization " />
-<meta property="og:description" content="Introduction Contrastive preference optimization (CPO) is methods to train the text generating LM model from human preference dataset. It takes advantages of low memory cunsumption for the training and less overfitting. The loss of DPO is given as
-$$ \begin{align} \mathcal{L}_ \text{DPO} &amp;= -\log (p^ * (y_ 1&gt;y_ 2 | x)) \\ &amp;= -\log \sigma \left(\beta\log\left(\frac{\pi(y_1|x)}{\pi_\text{ref}(y_1|x)}\right) - \beta\log\left(\frac{\pi(y_2|x)}{\pi_\text{ref}(y_2|x)}\right)\right) \end{align} $$ DPO make the model to output the preferred data $y_ 1$ rather than rejected one $y_ 2$." />
+</noscript><meta property="og:title" content="[scrap, sketch] Preference Optimization for Diffusion Model" />
+<meta property="og:description" content="I&rsquo;v write some equations of DPO and CPO. Recently, DPO for the diffusion model has been studied, which shows the better performance for the SDXL. The DPO-Diffusion loss is given as $$ \begin{align} \mathcal{L} \leq -\log \sigma \left(\beta T \log\frac{\pi_ \theta(x_ 1^ {t-1}|x_1^ t)}{\pi_ \text{ref}(x_ 1^ {t-1}|x_1^ t)} - \beta T \log\frac{\pi_ \theta(x_ 2^ {t-1}|x_1^ t)}{\pi_ \text{ref}(x_ 2^ {t-1}|x_1^ t)}\right) \end{align} $$ where $1$ is index for the preferred data and $2$ is that for the rejected data." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://learnitanyway.github.io/posts/scrap/cpo/" /><meta property="og:image" content="https://learnitanyway.github.io/images/papermod-cover.png"/><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2024-01-23T16:19:43+09:00" />
-<meta property="article:modified_time" content="2024-01-23T16:19:43+09:00" />
+<meta property="og:url" content="https://learnitanyway.github.io/posts/scrap/po_for_diffusion/" /><meta property="og:image" content="https://learnitanyway.github.io/images/papermod-cover.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-01-24T11:07:52+09:00" />
+<meta property="article:modified_time" content="2024-01-24T11:07:52+09:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://learnitanyway.github.io/images/papermod-cover.png"/>
 
-<meta name="twitter:title" content="[scrap] CPO - contrastive preference optimization "/>
-<meta name="twitter:description" content="Introduction Contrastive preference optimization (CPO) is methods to train the text generating LM model from human preference dataset. It takes advantages of low memory cunsumption for the training and less overfitting. The loss of DPO is given as
-$$ \begin{align} \mathcal{L}_ \text{DPO} &amp;= -\log (p^ * (y_ 1&gt;y_ 2 | x)) \\ &amp;= -\log \sigma \left(\beta\log\left(\frac{\pi(y_1|x)}{\pi_\text{ref}(y_1|x)}\right) - \beta\log\left(\frac{\pi(y_2|x)}{\pi_\text{ref}(y_2|x)}\right)\right) \end{align} $$ DPO make the model to output the preferred data $y_ 1$ rather than rejected one $y_ 2$."/>
+<meta name="twitter:title" content="[scrap, sketch] Preference Optimization for Diffusion Model"/>
+<meta name="twitter:description" content="I&rsquo;v write some equations of DPO and CPO. Recently, DPO for the diffusion model has been studied, which shows the better performance for the SDXL. The DPO-Diffusion loss is given as $$ \begin{align} \mathcal{L} \leq -\log \sigma \left(\beta T \log\frac{\pi_ \theta(x_ 1^ {t-1}|x_1^ t)}{\pi_ \text{ref}(x_ 1^ {t-1}|x_1^ t)} - \beta T \log\frac{\pi_ \theta(x_ 2^ {t-1}|x_1^ t)}{\pi_ \text{ref}(x_ 2^ {t-1}|x_1^ t)}\right) \end{align} $$ where $1$ is index for the preferred data and $2$ is that for the rejected data."/>
 
 
 <script type="application/ld+json">
@@ -111,8 +108,8 @@ $$ \begin{align} \mathcal{L}_ \text{DPO} &amp;= -\log (p^ * (y_ 1&gt;y_ 2 | x)) 
     {
       "@type": "ListItem",
       "position":  3 ,
-      "name": "[scrap] CPO - contrastive preference optimization ",
-      "item": "https://learnitanyway.github.io/posts/scrap/cpo/"
+      "name": "[scrap, sketch] Preference Optimization for Diffusion Model",
+      "item": "https://learnitanyway.github.io/posts/scrap/po_for_diffusion/"
     }
   ]
 }
@@ -121,20 +118,20 @@ $$ \begin{align} \mathcal{L}_ \text{DPO} &amp;= -\log (p^ * (y_ 1&gt;y_ 2 | x)) 
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "[scrap] CPO - contrastive preference optimization ",
-  "name": "[scrap] CPO - contrastive preference optimization ",
-  "description": "Introduction Contrastive preference optimization (CPO) is methods to train the text generating LM model from human preference dataset. It takes advantages of low memory cunsumption for the training and less overfitting. The loss of DPO is given as\n$$ \\begin{align} \\mathcal{L}_ \\text{DPO} \u0026amp;= -\\log (p^ * (y_ 1\u0026gt;y_ 2 | x)) \\\\ \u0026amp;= -\\log \\sigma \\left(\\beta\\log\\left(\\frac{\\pi(y_1|x)}{\\pi_\\text{ref}(y_1|x)}\\right) - \\beta\\log\\left(\\frac{\\pi(y_2|x)}{\\pi_\\text{ref}(y_2|x)}\\right)\\right) \\end{align} $$ DPO make the model to output the preferred data $y_ 1$ rather than rejected one $y_ 2$.",
+  "headline": "[scrap, sketch] Preference Optimization for Diffusion Model",
+  "name": "[scrap, sketch] Preference Optimization for Diffusion Model",
+  "description": "I\u0026rsquo;v write some equations of DPO and CPO. Recently, DPO for the diffusion model has been studied, which shows the better performance for the SDXL. The DPO-Diffusion loss is given as $$ \\begin{align} \\mathcal{L} \\leq -\\log \\sigma \\left(\\beta T \\log\\frac{\\pi_ \\theta(x_ 1^ {t-1}|x_1^ t)}{\\pi_ \\text{ref}(x_ 1^ {t-1}|x_1^ t)} - \\beta T \\log\\frac{\\pi_ \\theta(x_ 2^ {t-1}|x_1^ t)}{\\pi_ \\text{ref}(x_ 2^ {t-1}|x_1^ t)}\\right) \\end{align} $$ where $1$ is index for the preferred data and $2$ is that for the rejected data.",
   "keywords": [
-    "rlhf", "scrap"
+    "diffusion", "rlhf", "scarp", "sketch"
   ],
-  "articleBody": "Introduction Contrastive preference optimization (CPO) is methods to train the text generating LM model from human preference dataset. It takes advantages of low memory cunsumption for the training and less overfitting. The loss of DPO is given as\n$$ \\begin{align} \\mathcal{L}_ \\text{DPO} \u0026= -\\log (p^ * (y_ 1\u003ey_ 2 | x)) \\\\ \u0026= -\\log \\sigma \\left(\\beta\\log\\left(\\frac{\\pi(y_1|x)}{\\pi_\\text{ref}(y_1|x)}\\right) - \\beta\\log\\left(\\frac{\\pi(y_2|x)}{\\pi_\\text{ref}(y_2|x)}\\right)\\right) \\end{align} $$ DPO make the model to output the preferred data $y_ 1$ rather than rejected one $y_ 2$. In the CPO, instead of supervised fine-tuned model for the $\\pi_ \\text{ref}$, they assume the ideal model $\\pi_ w$, where $\\pi_ w(y_1)=1$ and $0\\leq \\pi_ w(y_2)\\leq 1$. Then the DPO loss is reformulated as $$ \\begin{align} \\mathcal{L}_ \\theta \u0026= -\\log \\sigma \\left[\\beta(\\log\\pi_ \\theta (y_1|x) - \\log\\pi_ w(y_1|x)-\\log \\pi_ \\theta(y_2|x) + \\log \\pi_ w (y_2|x)) \\right] \\\\ \u0026= -\\log \\sigma \\left[ \\beta(\\log\\pi_ \\theta (y_1|x) -\\log \\pi_ \\theta(y_2|x) + \\log \\pi_ w (y_2|x)) \\right] \\\\ \u0026= -\\log \\left(1/(1+\\frac{\\pi_ \\theta(y_2|x)^ \\beta}{\\pi_ \\theta(y_1|x)^ \\beta \\pi_w (y_2|x)^ \\beta})\\right) \\\\ \u0026= -\\log \\left(\\pi_ \\theta(y_1|x)^ \\beta \\pi_w (y_2|x)^ \\beta/(\\pi_ \\theta(y_1|x)^ \\beta \\pi_w (y_2|x)^ \\beta+\\pi_ \\theta(y_2|x)^ \\beta)\\right) \\\\ \\end{align} $$ Since $w$ is not optimized parameters, the preference loss is given as $$ \\begin{align} \\mathcal{L}_ \\theta \u0026= -\\beta \\log \\pi_ \\theta(y_1|x) + \\log(\\pi_ \\theta(y_1|x)^ \\beta \\pi_ w(y_2|x)^ \\beta + \\pi_ \\theta(y_2|x)^ \\beta) \\\\ \u0026\\leq-\\beta \\log \\pi_ \\theta(y_1|x) + \\log(\\pi_ \\theta(y_1|x)^ \\beta \\cdot 1 + \\pi_ \\theta(y_2|x)^ \\beta) \\\\ \u0026= - \\log \\sigma (\\beta \\log \\pi_ \\theta(y_ 1|x)-\\beta \\log \\pi_ \\theta(y_ 2|x))=\\mathcal{L}_ \\text{prefer} \\end{align} $$ The author additionally gives a log-likelihood loss for the preferred data. $$ \\begin{align} \\mathcal{L}_ \\text{NLL}\u0026=-\\log \\pi_ \\theta (y_ 1|x) \\\\ \\mathcal{L}_ \\text{CPO}\u0026= \\mathcal{L}_ \\text{prefer}+ \\mathcal{L}_ \\text{NLL} \\\\ \\end{align} $$\n",
-  "wordCount" : "272",
+  "articleBody": "I’v write some equations of DPO and CPO. Recently, DPO for the diffusion model has been studied, which shows the better performance for the SDXL. The DPO-Diffusion loss is given as $$ \\begin{align} \\mathcal{L} \\leq -\\log \\sigma \\left(\\beta T \\log\\frac{\\pi_ \\theta(x_ 1^ {t-1}|x_1^ t)}{\\pi_ \\text{ref}(x_ 1^ {t-1}|x_1^ t)} - \\beta T \\log\\frac{\\pi_ \\theta(x_ 2^ {t-1}|x_1^ t)}{\\pi_ \\text{ref}(x_ 2^ {t-1}|x_1^ t)}\\right) \\end{align} $$ where $1$ is index for the preferred data and $2$ is that for the rejected data. Superscript $t$ and $t-1$ means for the diffusion paths. The loss is given as $$ \\begin{align} \\mathcal{L}_ \\text{DPO-diff} \u0026=-\\log \\sigma \\left[-\\beta T (\\mathbb{D}(\\pi_ \\theta, x_ 1, t)-\\mathbb{D}(\\pi_ \\text{ref}, x_ 1, t)-\\mathbb{D}(\\pi_ \\theta, x_ 2, t)+\\mathbb{D}(\\pi_ \\text{ref}, x_ 2, t)) \\right] \\\\ \u0026=-\\log \\sigma \\left[-\\beta T w(\\lambda_t)(\\epsilon (\\pi_ \\theta, x_ 1, t)-\\epsilon(\\pi_ \\text{ref}, x_ 1, t)-\\epsilon(\\pi_ \\theta, x_ 2, t)+\\epsilon(\\pi_ \\text{ref}, x_ 2, t)) \\right] \\end{align} $$ where $$ \\begin{align} \\mathbb{D} (\\pi, x, t)\u0026=\\mathbb{D}_ \\text{KL} (q(x^ {t-1}|x^ {0,t})||\\pi(x^ {t-1}|x^ t)) \\\\ \\epsilon(\\pi, x, t)\u0026= ||\\epsilon - \\epsilon(x^ t, t) ||_ 2^ 2 \\end{align} $$ Here, $x_ t^ *=\\alpha_ t x_ 0^ * + \\sigma_ t \\epsilon^ *$, $\\epsilon^ * \\sim \\mathcal{N} (0, I)$ is drawn from $q$, $\\lambda_ t=\\alpha_ t^ 2/\\sigma_ t^ 2$ is signal to noise ratio, and $w(\\lambda _t)$ is the weighting function.\nSimilarly, CPO diffusion loss can be given by $$ \\begin{align} \\mathcal{L}_ \\text{CPO-diff} \u0026= -\\log (-w(\\lambda_ t)\\epsilon(\\pi_ \\theta, x_ 1, t)) -\\log \\sigma \\left[-\\beta T w(\\lambda_t)(\\epsilon (\\pi_ \\theta, x_ 1, t)-\\epsilon(\\pi_ \\theta, x_ 2, t)) \\right] \\\\ \u0026= \\mathcal{L}_ \\text{NLL-diff} + \\mathcal{L}_ \\text{preference-diff} \\end{align} $$ As CPO does, CPO diffusion loss takes advantages of lower memory consumption and computational resources as it does not need reference model. Need more experiments. (until now, 24.Jan , there is no paper or report about CPO diffusion loss.)\n",
+  "wordCount" : "295",
   "inLanguage": "en",
-  "datePublished": "2024-01-23T16:19:43+09:00",
-  "dateModified": "2024-01-23T16:19:43+09:00",
+  "datePublished": "2024-01-24T11:07:52+09:00",
+  "dateModified": "2024-01-24T11:07:52+09:00",
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://learnitanyway.github.io/posts/scrap/cpo/"
+    "@id": "https://learnitanyway.github.io/posts/scrap/po_for_diffusion/"
   },
   "publisher": {
     "@type": "Organization",
@@ -218,81 +215,61 @@ $$ \begin{align} \mathcal{L}_ \text{DPO} &amp;= -\log (p^ * (y_ 1&gt;y_ 2 | x)) 
   <header class="post-header">
     <div class="breadcrumbs"><a href="https://learnitanyway.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://learnitanyway.github.io/posts/">Posts</a>&nbsp;»&nbsp;<a href="https://learnitanyway.github.io/posts/scrap/">scrap</a></div>
     <h1 class="post-title entry-hint-parent">
-      [scrap] CPO - contrastive preference optimization 
+      [scrap, sketch] Preference Optimization for Diffusion Model
     </h1>
-    <div class="post-meta"><span title='2024-01-23 16:19:43 +0900 KST'>January 23, 2024</span>&nbsp;·&nbsp;2 min
+    <div class="post-meta"><span title='2024-01-24 11:07:52 +0900 KST'>January 24, 2024</span>&nbsp;·&nbsp;2 min
 
 </div>
-  </header> <div class="toc">
-    <details >
-        <summary accesskey="c" title="(Alt + C)">
-            <span class="details">Table of Contents</span>
-        </summary>
+  </header> 
 
-        <div class="inner"><ul>
-                <li>
-                    <a href="#introduction" aria-label="Introduction">Introduction</a>
-                </li>
-            </ul>
-        </div>
-    </details>
-</div>
-
-  <div class="post-content"><h1 id="introduction">Introduction<a hidden class="anchor" aria-hidden="true" href="#introduction">#</a></h1>
-<p>Contrastive preference optimization <a href="https://arxiv.org/pdf/2401.08417.pdf">(CPO)</a> is methods to train the text generating LM model from human preference dataset.
-It takes advantages of low memory cunsumption for the training and less overfitting.
-The loss of DPO is given as<br>
+  <div class="post-content"><p>I&rsquo;v write some equations of <a href="/posts/scrap/dpo">DPO</a> and <a href="/posts/scrap/cpo">CPO</a>.
+Recently, <a href="https://arxiv.org/pdf/2311.12908.pdf">DPO for the diffusion model</a> has been studied, which shows the better performance for the SDXL.
+The DPO-Diffusion loss is given as
 $$
 \begin{align}
-\mathcal{L}_ \text{DPO} &amp;= -\log (p^ * (y_ 1&gt;y_ 2 | x)) \\
-&amp;= -\log \sigma \left(\beta\log\left(\frac{\pi(y_1|x)}{\pi_\text{ref}(y_1|x)}\right) - \beta\log\left(\frac{\pi(y_2|x)}{\pi_\text{ref}(y_2|x)}\right)\right)
+\mathcal{L} \leq -\log \sigma \left(\beta T \log\frac{\pi_ \theta(x_ 1^ {t-1}|x_1^ t)}{\pi_ \text{ref}(x_ 1^ {t-1}|x_1^ t)} - \beta T \log\frac{\pi_ \theta(x_ 2^ {t-1}|x_1^ t)}{\pi_ \text{ref}(x_ 2^ {t-1}|x_1^ t)}\right)
 \end{align}
 $$
-DPO make the model to output the preferred data $y_ 1$ rather than rejected one $y_ 2$.
-In the CPO, instead of supervised fine-tuned model for the $\pi_ \text{ref}$, they assume the ideal model $\pi_ w$, where $\pi_ w(y_1)=1$ and $0\leq \pi_ w(y_2)\leq 1$.
-Then the DPO loss is reformulated as
+where $1$ is index for the preferred data and $2$ is that for the rejected data. Superscript $t$ and $t-1$ means for the diffusion paths. The loss is given as
 $$
 \begin{align}
-\mathcal{L}_ \theta &amp;= -\log \sigma \left[\beta(\log\pi_ \theta (y_1|x) - \log\pi_ w(y_1|x)-\log \pi_ \theta(y_2|x) + \log \pi_ w (y_2|x)) \right] \\
-&amp;= -\log \sigma \left[ \beta(\log\pi_ \theta (y_1|x) -\log \pi_ \theta(y_2|x) + \log \pi_ w (y_2|x)) \right] \\
-&amp;= -\log \left(1/(1+\frac{\pi_ \theta(y_2|x)^ \beta}{\pi_ \theta(y_1|x)^ \beta \pi_w (y_2|x)^ \beta})\right) \\
-&amp;=  -\log \left(\pi_ \theta(y_1|x)^ \beta \pi_w (y_2|x)^ \beta/(\pi_ \theta(y_1|x)^ \beta \pi_w (y_2|x)^ \beta+\pi_ \theta(y_2|x)^ \beta)\right) \\
+\mathcal{L}_ \text{DPO-diff} &amp;=-\log \sigma \left[-\beta T (\mathbb{D}(\pi_ \theta, x_ 1, t)-\mathbb{D}(\pi_ \text{ref}, x_ 1, t)-\mathbb{D}(\pi_ \theta, x_ 2, t)+\mathbb{D}(\pi_ \text{ref}, x_ 2, t)) \right] \\
+&amp;=-\log \sigma \left[-\beta T w(\lambda_t)(\epsilon (\pi_ \theta, x_ 1, t)-\epsilon(\pi_ \text{ref}, x_ 1, t)-\epsilon(\pi_ \theta, x_ 2, t)+\epsilon(\pi_ \text{ref}, x_ 2, t)) \right]
 \end{align}
 $$
-Since $w$ is not optimized parameters, the preference loss is given as
+where
 $$
 \begin{align}
-\mathcal{L}_ \theta &amp;=  -\beta \log \pi_ \theta(y_1|x) + \log(\pi_ \theta(y_1|x)^ \beta \pi_ w(y_2|x)^ \beta + \pi_ \theta(y_2|x)^ \beta) \\
-&amp;\leq-\beta \log \pi_ \theta(y_1|x) + \log(\pi_ \theta(y_1|x)^ \beta \cdot 1 + \pi_ \theta(y_2|x)^ \beta) \\
-&amp;= - \log \sigma (\beta \log \pi_ \theta(y_ 1|x)-\beta \log \pi_ \theta(y_ 2|x))=\mathcal{L}_ \text{prefer}
+\mathbb{D} (\pi, x, t)&amp;=\mathbb{D}_ \text{KL} (q(x^ {t-1}|x^ {0,t})||\pi(x^ {t-1}|x^ t)) \\
+\epsilon(\pi, x, t)&amp;= ||\epsilon - \epsilon(x^ t, t) ||_ 2^ 2
 \end{align}
 $$
-The author additionally gives a log-likelihood loss for the preferred data.
+Here, $x_ t^ *=\alpha_ t x_ 0^ * + \sigma_ t \epsilon^ *$, $\epsilon^ * \sim \mathcal{N} (0, I)$ is drawn from $q$, $\lambda_ t=\alpha_ t^ 2/\sigma_ t^ 2$ is signal to noise ratio, and $w(\lambda _t)$ is the weighting function.</p>
+<p>Similarly, CPO diffusion loss can be given by
 $$
 \begin{align}
-\mathcal{L}_ \text{NLL}&amp;=-\log \pi_ \theta (y_ 1|x)  \\
-\mathcal{L}_ \text{CPO}&amp;= \mathcal{L}_ \text{prefer}+ \mathcal{L}_ \text{NLL} \\
+\mathcal{L}_ \text{CPO-diff} &amp;= -\log (-w(\lambda_ t)\epsilon(\pi_ \theta, x_ 1, t))
+-\log \sigma \left[-\beta T w(\lambda_t)(\epsilon (\pi_ \theta, x_ 1, t)-\epsilon(\pi_ \theta, x_ 2, t)) \right] \\
+&amp;= \mathcal{L}_ \text{NLL-diff} + \mathcal{L}_ \text{preference-diff}
 \end{align}
-$$</p>
+$$
+As CPO does, CPO diffusion loss takes advantages of lower memory consumption and computational resources as it does not need reference model. Need more experiments. (until now, 24.Jan , there is no paper or report about CPO diffusion loss.)</p>
 
 
   </div>
 
   <footer class="post-footer">
     <ul class="post-tags">
+      <li><a href="https://learnitanyway.github.io/tags/diffusion/">diffusion</a></li>
       <li><a href="https://learnitanyway.github.io/tags/rlhf/">rlhf</a></li>
-      <li><a href="https://learnitanyway.github.io/tags/scrap/">scrap</a></li>
+      <li><a href="https://learnitanyway.github.io/tags/scarp/">scarp</a></li>
+      <li><a href="https://learnitanyway.github.io/tags/sketch/">sketch</a></li>
     </ul>
 <nav class="paginav">
-  <a class="prev" href="https://learnitanyway.github.io/posts/scrap/po_for_diffusion/">
-    <span class="title">« Prev</span>
-    <br>
-    <span>[scrap, sketch] Preference Optimization for Diffusion Model</span>
-  </a>
-  <a class="next" href="https://learnitanyway.github.io/posts/scrap/rt-2/">
+  <a class="next" href="https://learnitanyway.github.io/posts/scrap/cpo/">
     <span class="title">Next »</span>
     <br>
-    <span>[scrap] Robotic Transformer 2</span>
+    <span>[scrap] CPO - contrastive preference optimization </span>
   </a>
 </nav>
 

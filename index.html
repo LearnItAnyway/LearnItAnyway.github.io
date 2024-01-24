@@ -186,6 +186,18 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">[scrap, sketch] Preference Optimization for Diffusion Model
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>I’v write some equations of DPO and CPO. Recently, DPO for the diffusion model has been studied, which shows the better performance for the SDXL. The DPO-Diffusion loss is given as $$ \begin{align} \mathcal{L} \leq -\log \sigma \left(\beta T \log\frac{\pi_ \theta(x_ 1^ {t-1}|x_1^ t)}{\pi_ \text{ref}(x_ 1^ {t-1}|x_1^ t)} - \beta T \log\frac{\pi_ \theta(x_ 2^ {t-1}|x_1^ t)}{\pi_ \text{ref}(x_ 2^ {t-1}|x_1^ t)}\right) \end{align} $$ where $1$ is index for the preferred data and $2$ is that for the rejected data....</p>
+  </div>
+  <footer class="entry-footer"><span title='2024-01-24 11:07:52 +0900 KST'>January 24, 2024</span>&nbsp;·&nbsp;2 min</footer>
+  <a class="entry-link" aria-label="post link to [scrap, sketch] Preference Optimization for Diffusion Model" href="https://learnitanyway.github.io/posts/scrap/po_for_diffusion/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">[scrap] CPO - contrastive preference optimization 
     </h2>
   </header>
@@ -233,20 +245,6 @@ Some weight are more salient than the other Considering the activation not the w
   </div>
   <footer class="entry-footer"><span title='2024-01-15 11:28:06 +0900 KST'>January 15, 2024</span>&nbsp;·&nbsp;2 min</footer>
   <a class="entry-link" aria-label="post link to [scrap] AWQ - activation-aware weight quantization" href="https://learnitanyway.github.io/posts/scrap/awq/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">[scrap] DPO - direct preference optimization 
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Introduction Direct preference optimization (DPO) is the methods to train the text generating LM model from the human preference dataset. The relationship between the preference and the reward is given from Bardley-Terry model as
-$$ \begin{align} p^* (y_1&gt;y_2|x) = \frac{\exp(r^* (x, y_1))}{\exp(r^* (x, y_1))&#43;\exp(r^* (x, y_2))} \end{align} $$
-Simply put, the better output (one that has the higher reward) is more likely to be preffered. Based on this reward, the LM can be trained to maximize the reward of the output....</p>
-  </div>
-  <footer class="entry-footer"><span title='2024-01-14 12:53:10 +0900 KST'>January 14, 2024</span>&nbsp;·&nbsp;2 min</footer>
-  <a class="entry-link" aria-label="post link to [scrap] DPO - direct preference optimization " href="https://learnitanyway.github.io/posts/scrap/dpo/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

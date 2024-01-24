@@ -171,6 +171,20 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">[scrap] DPO - direct preference optimization 
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Introduction Direct preference optimization (DPO) is the methods to train the text generating LM model from the human preference dataset. The relationship between the preference and the reward is given from Bardley-Terry model as
+$$ \begin{align} p^* (y_1&gt;y_2|x) = \frac{\exp(r^* (x, y_1))}{\exp(r^* (x, y_1))&#43;\exp(r^* (x, y_2))} \end{align} $$
+Simply put, the better output (one that has the higher reward) is more likely to be preffered. Based on this reward, the LM can be trained to maximize the reward of the output....</p>
+  </div>
+  <footer class="entry-footer"><span title='2024-01-14 12:53:10 +0900 KST'>January 14, 2024</span>&nbsp;·&nbsp;2 min</footer>
+  <a class="entry-link" aria-label="post link to [scrap] DPO - direct preference optimization " href="https://learnitanyway.github.io/posts/scrap/dpo/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">[scrap] Encodec
     </h2>
   </header>
