@@ -11,8 +11,22 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 18 Jan 2024 20:55:20 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 23 Jan 2024 16:19:43 +0900</lastBuildDate>
     <atom:link href="https://learnitanyway.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>rlhf</title>
+      <link>https://learnitanyway.github.io/tags/rlhf/</link>
+      <pubDate>Tue, 23 Jan 2024 16:19:43 +0900</pubDate>
+      <guid>https://learnitanyway.github.io/tags/rlhf/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>scrap</title>
+      <link>https://learnitanyway.github.io/tags/scrap/</link>
+      <pubDate>Tue, 23 Jan 2024 16:19:43 +0900</pubDate>
+      <guid>https://learnitanyway.github.io/tags/scrap/</guid>
+      <description></description>
+    </item>
     <item>
       <title>IL</title>
       <link>https://learnitanyway.github.io/tags/il/</link>
@@ -46,20 +60,6 @@
       <link>https://learnitanyway.github.io/tags/quantization/</link>
       <pubDate>Mon, 15 Jan 2024 11:28:06 +0900</pubDate>
       <guid>https://learnitanyway.github.io/tags/quantization/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>rlhf</title>
-      <link>https://learnitanyway.github.io/tags/rlhf/</link>
-      <pubDate>Sun, 14 Jan 2024 12:53:10 +0900</pubDate>
-      <guid>https://learnitanyway.github.io/tags/rlhf/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>scrap</title>
-      <link>https://learnitanyway.github.io/tags/scrap/</link>
-      <pubDate>Sun, 14 Jan 2024 12:53:10 +0900</pubDate>
-      <guid>https://learnitanyway.github.io/tags/scrap/</guid>
       <description></description>
     </item>
   </channel>

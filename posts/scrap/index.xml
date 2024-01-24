@@ -11,8 +11,16 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 18 Jan 2024 20:55:20 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 23 Jan 2024 16:19:43 +0900</lastBuildDate>
     <atom:link href="https://learnitanyway.github.io/posts/scrap/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[scrap] CPO - contrastive preference optimization </title>
+      <link>https://learnitanyway.github.io/posts/scrap/cpo/</link>
+      <pubDate>Tue, 23 Jan 2024 16:19:43 +0900</pubDate>
+      <guid>https://learnitanyway.github.io/posts/scrap/cpo/</guid>
+      <description>Introduction Contrastive preference optimization (CPO) is methods to train the text generating LM model from human preference dataset. It takes advantages of low memory cunsumption for the training and less overfitting. The loss of DPO is given as
+$$ \begin{align} \mathcal{L}_ \text{DPO} &amp;amp;= -\log (p^ * (y_ 1&amp;gt;y_ 2 | x)) \\ &amp;amp;= -\log \sigma \left(\beta\log\left(\frac{\pi(y_1|x)}{\pi_\text{ref}(y_1|x)}\right) - \beta\log\left(\frac{\pi(y_2|x)}{\pi_\text{ref}(y_2|x)}\right)\right) \end{align} $$ DPO make the model to output the preferred data $y_ 1$ rather than rejected one $y_ 2$.</description>
+    </item>
     <item>
       <title>[scrap] Robotic Transformer 2</title>
       <link>https://learnitanyway.github.io/posts/scrap/rt-2/</link>

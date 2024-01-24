@@ -2,6 +2,24 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://learnitanyway.github.io/posts/scrap/cpo/</loc>
+    <lastmod>2024-01-23T16:19:43+09:00</lastmod>
+  </url><url>
+    <loc>https://learnitanyway.github.io/posts/</loc>
+    <lastmod>2024-01-23T16:19:43+09:00</lastmod>
+  </url><url>
+    <loc>https://learnitanyway.github.io/tags/rlhf/</loc>
+    <lastmod>2024-01-23T16:19:43+09:00</lastmod>
+  </url><url>
+    <loc>https://learnitanyway.github.io/tags/scrap/</loc>
+    <lastmod>2024-01-23T16:19:43+09:00</lastmod>
+  </url><url>
+    <loc>https://learnitanyway.github.io/posts/scrap/</loc>
+    <lastmod>2024-01-23T16:19:43+09:00</lastmod>
+  </url><url>
+    <loc>https://learnitanyway.github.io/tags/</loc>
+    <lastmod>2024-01-23T16:19:43+09:00</lastmod>
+  </url><url>
     <loc>https://learnitanyway.github.io/posts/scrap/rt-2/</loc>
     <lastmod>2024-01-18T20:55:20+09:00</lastmod>
   </url><url>
@@ -9,15 +27,6 @@
     <lastmod>2024-01-18T20:55:20+09:00</lastmod>
   </url><url>
     <loc>https://learnitanyway.github.io/tags/llm/</loc>
-    <lastmod>2024-01-18T20:55:20+09:00</lastmod>
-  </url><url>
-    <loc>https://learnitanyway.github.io/posts/</loc>
-    <lastmod>2024-01-18T20:55:20+09:00</lastmod>
-  </url><url>
-    <loc>https://learnitanyway.github.io/posts/scrap/</loc>
-    <lastmod>2024-01-18T20:55:20+09:00</lastmod>
-  </url><url>
-    <loc>https://learnitanyway.github.io/tags/</loc>
     <lastmod>2024-01-18T20:55:20+09:00</lastmod>
   </url><url>
     <loc>https://learnitanyway.github.io/posts/scrap/diff_in_encodec/</loc>
@@ -36,12 +45,6 @@
     <lastmod>2024-01-15T11:28:06+09:00</lastmod>
   </url><url>
     <loc>https://learnitanyway.github.io/posts/scrap/dpo/</loc>
-    <lastmod>2024-01-14T12:53:10+09:00</lastmod>
-  </url><url>
-    <loc>https://learnitanyway.github.io/tags/rlhf/</loc>
-    <lastmod>2024-01-14T12:53:10+09:00</lastmod>
-  </url><url>
-    <loc>https://learnitanyway.github.io/tags/scrap/</loc>
     <lastmod>2024-01-14T12:53:10+09:00</lastmod>
   </url><url>
     <loc>https://learnitanyway.github.io/</loc>

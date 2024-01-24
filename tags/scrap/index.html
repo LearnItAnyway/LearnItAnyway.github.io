@@ -169,6 +169,19 @@
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">[scrap] CPO - contrastive preference optimization 
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Introduction Contrastive preference optimization (CPO) is methods to train the text generating LM model from human preference dataset. It takes advantages of low memory cunsumption for the training and less overfitting. The loss of DPO is given as
+$$ \begin{align} \mathcal{L}_ \text{DPO} &amp;= -\log (p^ * (y_ 1&gt;y_ 2 | x)) \\ &amp;= -\log \sigma \left(\beta\log\left(\frac{\pi(y_1|x)}{\pi_\text{ref}(y_1|x)}\right) - \beta\log\left(\frac{\pi(y_2|x)}{\pi_\text{ref}(y_2|x)}\right)\right) \end{align} $$ DPO make the model to output the preferred data $y_ 1$ rather than rejected one $y_ 2$....</p>
+  </div>
+  <footer class="entry-footer"><span title='2024-01-23 16:19:43 +0900 KST'>January 23, 2024</span>&nbsp;·&nbsp;2 min</footer>
+  <a class="entry-link" aria-label="post link to [scrap] CPO - contrastive preference optimization " href="https://learnitanyway.github.io/posts/scrap/cpo/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">[scrap] DPO - direct preference optimization 
     </h2>
   </header>
