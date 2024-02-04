@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>IL on LIA&#39;log</title>
-    <link>https://learnitanyway.github.io/tags/il/</link>
-    <description>Recent content in IL on LIA&#39;log</description>
+    <title>RL on LIA&#39;log</title>
+    <link>https://learnitanyway.github.io/tags/rl/</link>
+    <description>Recent content in RL on LIA&#39;log</description>
     <image>
       <title>LIA&#39;log</title>
       <url>https://learnitanyway.github.io/images/papermod-cover.png</url>
@@ -12,7 +12,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Thu, 18 Jan 2024 20:55:26 +0900</lastBuildDate>
-    <atom:link href="https://learnitanyway.github.io/tags/il/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://learnitanyway.github.io/tags/rl/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[scrap] Decision Transformer</title>
       <link>https://learnitanyway.github.io/posts/scrap/decision_former/</link>
@@ -21,13 +21,6 @@
       <description>Intro and Method Decision transformer is the RL method that use causal transformer to output the action using the sequences of state, action, and reward.
 For the inputs of the transformers, state, action, and returns-to-go $\hat R_ t= \Sigma_ {t&amp;rsquo;=t} ^ {T} r_ {t&amp;rsquo;}$. Perhaps, we can skip returns-to-go if the reward is not diretly obtainable during the decision. The Algorithm is given as below.
 Experiments DT vs BC on a subset of data?</description>
-    </item>
-    <item>
-      <title>[scrap] Robotic Transformer 2</title>
-      <link>https://learnitanyway.github.io/posts/scrap/rt-2/</link>
-      <pubDate>Thu, 18 Jan 2024 20:55:20 +0900</pubDate>
-      <guid>https://learnitanyway.github.io/posts/scrap/rt-2/</guid>
-      <description>Introduction Robotic Transformer 2 (RT-2) is the vision-language-action model for the robotic control trained with the imitation learning. The pretrained vision-language models are fine tuned with robotic control dataset and vision-language dataset from web have been used, where both the language response and robotic actions are the same format. The use of pretrained visual-language model enables the semantic aware policies, i.e., if the task is interpretable through the visual-language model, it can perform even though the task is not included in the trained data.</description>
     </item>
   </channel>
 </rss>

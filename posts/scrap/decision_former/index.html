@@ -25,11 +25,13 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>[scrap, sketch] Preference Optimization for Diffusion Model | LIA&#39;log</title>
-<meta name="keywords" content="diffusion, rlhf, scarp, sketch">
-<meta name="description" content="I&rsquo;v write some equations of DPO and CPO. Recently, DPO for the diffusion model has been studied, which shows the better performance for the SDXL. The DPO-Diffusion loss is given as $$ \begin{align} \mathcal{L} \leq -\log \sigma \left(\beta T \log\frac{\pi_ \theta(x_ 1^ {t-1}|x_1^ t)}{\pi_ \text{ref}(x_ 1^ {t-1}|x_1^ t)} - \beta T \log\frac{\pi_ \theta(x_ 2^ {t-1}|x_1^ t)}{\pi_ \text{ref}(x_ 2^ {t-1}|x_1^ t)}\right) \end{align} $$ where $1$ is index for the preferred data and $2$ is that for the rejected data.">
+<title>[scrap] Decision Transformer | LIA&#39;log</title>
+<meta name="keywords" content="RL, IL, scrap">
+<meta name="description" content="Intro and Method Decision transformer is the RL method that use causal transformer to output the action using the sequences of state, action, and reward.
+For the inputs of the transformers, state, action, and returns-to-go $\hat R_ t= \Sigma_ {t&rsquo;=t} ^ {T} r_ {t&rsquo;}$. Perhaps, we can skip returns-to-go if the reward is not diretly obtainable during the decision. The Algorithm is given as below.
+Experiments DT vs BC on a subset of data?">
 <meta name="author" content="">
-<link rel="canonical" href="https://learnitanyway.github.io/posts/scrap/po_for_diffusion/">
+<link rel="canonical" href="https://learnitanyway.github.io/posts/scrap/decision_former/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.b609c58d5c11bb90b1a54e04005d74ad1ddf22165eb79f5533967e57df9c3b50.css" integrity="sha256-tgnFjVwRu5CxpU4EAF10rR3fIhZet59VM5Z&#43;V9&#43;cO1A=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://learnitanyway.github.io/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://learnitanyway.github.io/favicon-16x16.png">
@@ -74,18 +76,22 @@
         }
 
     </style>
-</noscript><meta property="og:title" content="[scrap, sketch] Preference Optimization for Diffusion Model" />
-<meta property="og:description" content="I&rsquo;v write some equations of DPO and CPO. Recently, DPO for the diffusion model has been studied, which shows the better performance for the SDXL. The DPO-Diffusion loss is given as $$ \begin{align} \mathcal{L} \leq -\log \sigma \left(\beta T \log\frac{\pi_ \theta(x_ 1^ {t-1}|x_1^ t)}{\pi_ \text{ref}(x_ 1^ {t-1}|x_1^ t)} - \beta T \log\frac{\pi_ \theta(x_ 2^ {t-1}|x_1^ t)}{\pi_ \text{ref}(x_ 2^ {t-1}|x_1^ t)}\right) \end{align} $$ where $1$ is index for the preferred data and $2$ is that for the rejected data." />
+</noscript><meta property="og:title" content="[scrap] Decision Transformer" />
+<meta property="og:description" content="Intro and Method Decision transformer is the RL method that use causal transformer to output the action using the sequences of state, action, and reward.
+For the inputs of the transformers, state, action, and returns-to-go $\hat R_ t= \Sigma_ {t&rsquo;=t} ^ {T} r_ {t&rsquo;}$. Perhaps, we can skip returns-to-go if the reward is not diretly obtainable during the decision. The Algorithm is given as below.
+Experiments DT vs BC on a subset of data?" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://learnitanyway.github.io/posts/scrap/po_for_diffusion/" /><meta property="og:image" content="https://learnitanyway.github.io/images/papermod-cover.png"/><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2024-01-24T11:07:52+09:00" />
-<meta property="article:modified_time" content="2024-01-24T11:07:52+09:00" />
+<meta property="og:url" content="https://learnitanyway.github.io/posts/scrap/decision_former/" /><meta property="og:image" content="https://learnitanyway.github.io/images/papermod-cover.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-01-18T20:55:26+09:00" />
+<meta property="article:modified_time" content="2024-01-18T20:55:26+09:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://learnitanyway.github.io/images/papermod-cover.png"/>
 
-<meta name="twitter:title" content="[scrap, sketch] Preference Optimization for Diffusion Model"/>
-<meta name="twitter:description" content="I&rsquo;v write some equations of DPO and CPO. Recently, DPO for the diffusion model has been studied, which shows the better performance for the SDXL. The DPO-Diffusion loss is given as $$ \begin{align} \mathcal{L} \leq -\log \sigma \left(\beta T \log\frac{\pi_ \theta(x_ 1^ {t-1}|x_1^ t)}{\pi_ \text{ref}(x_ 1^ {t-1}|x_1^ t)} - \beta T \log\frac{\pi_ \theta(x_ 2^ {t-1}|x_1^ t)}{\pi_ \text{ref}(x_ 2^ {t-1}|x_1^ t)}\right) \end{align} $$ where $1$ is index for the preferred data and $2$ is that for the rejected data."/>
+<meta name="twitter:title" content="[scrap] Decision Transformer"/>
+<meta name="twitter:description" content="Intro and Method Decision transformer is the RL method that use causal transformer to output the action using the sequences of state, action, and reward.
+For the inputs of the transformers, state, action, and returns-to-go $\hat R_ t= \Sigma_ {t&rsquo;=t} ^ {T} r_ {t&rsquo;}$. Perhaps, we can skip returns-to-go if the reward is not diretly obtainable during the decision. The Algorithm is given as below.
+Experiments DT vs BC on a subset of data?"/>
 
 
 <script type="application/ld+json">
@@ -108,8 +114,8 @@
     {
       "@type": "ListItem",
       "position":  3 ,
-      "name": "[scrap, sketch] Preference Optimization for Diffusion Model",
-      "item": "https://learnitanyway.github.io/posts/scrap/po_for_diffusion/"
+      "name": "[scrap] Decision Transformer",
+      "item": "https://learnitanyway.github.io/posts/scrap/decision_former/"
     }
   ]
 }
@@ -118,20 +124,20 @@
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "[scrap, sketch] Preference Optimization for Diffusion Model",
-  "name": "[scrap, sketch] Preference Optimization for Diffusion Model",
-  "description": "I\u0026rsquo;v write some equations of DPO and CPO. Recently, DPO for the diffusion model has been studied, which shows the better performance for the SDXL. The DPO-Diffusion loss is given as $$ \\begin{align} \\mathcal{L} \\leq -\\log \\sigma \\left(\\beta T \\log\\frac{\\pi_ \\theta(x_ 1^ {t-1}|x_1^ t)}{\\pi_ \\text{ref}(x_ 1^ {t-1}|x_1^ t)} - \\beta T \\log\\frac{\\pi_ \\theta(x_ 2^ {t-1}|x_1^ t)}{\\pi_ \\text{ref}(x_ 2^ {t-1}|x_1^ t)}\\right) \\end{align} $$ where $1$ is index for the preferred data and $2$ is that for the rejected data.",
+  "headline": "[scrap] Decision Transformer",
+  "name": "[scrap] Decision Transformer",
+  "description": "Intro and Method Decision transformer is the RL method that use causal transformer to output the action using the sequences of state, action, and reward.\nFor the inputs of the transformers, state, action, and returns-to-go $\\hat R_ t= \\Sigma_ {t\u0026rsquo;=t} ^ {T} r_ {t\u0026rsquo;}$. Perhaps, we can skip returns-to-go if the reward is not diretly obtainable during the decision. The Algorithm is given as below.\nExperiments DT vs BC on a subset of data?",
   "keywords": [
-    "diffusion", "rlhf", "scarp", "sketch"
+    "RL", "IL", "scrap"
   ],
-  "articleBody": "I’v write some equations of DPO and CPO. Recently, DPO for the diffusion model has been studied, which shows the better performance for the SDXL. The DPO-Diffusion loss is given as $$ \\begin{align} \\mathcal{L} \\leq -\\log \\sigma \\left(\\beta T \\log\\frac{\\pi_ \\theta(x_ 1^ {t-1}|x_1^ t)}{\\pi_ \\text{ref}(x_ 1^ {t-1}|x_1^ t)} - \\beta T \\log\\frac{\\pi_ \\theta(x_ 2^ {t-1}|x_1^ t)}{\\pi_ \\text{ref}(x_ 2^ {t-1}|x_1^ t)}\\right) \\end{align} $$ where $1$ is index for the preferred data and $2$ is that for the rejected data. Superscript $t$ and $t-1$ means for the diffusion paths. The loss is given as $$ \\begin{align} \\mathcal{L}_ \\text{DPO-diff} \u0026=-\\log \\sigma \\left[-\\beta T (\\mathbb{D}(\\pi_ \\theta, x_ 1, t)-\\mathbb{D}(\\pi_ \\text{ref}, x_ 1, t)-\\mathbb{D}(\\pi_ \\theta, x_ 2, t)+\\mathbb{D}(\\pi_ \\text{ref}, x_ 2, t)) \\right] \\\\ \u0026=-\\log \\sigma \\left[-\\beta T w(\\lambda_t)(\\epsilon (\\pi_ \\theta, x_ 1, t)-\\epsilon(\\pi_ \\text{ref}, x_ 1, t)-\\epsilon(\\pi_ \\theta, x_ 2, t)+\\epsilon(\\pi_ \\text{ref}, x_ 2, t)) \\right] \\end{align} $$ where $$ \\begin{align} \\mathbb{D} (\\pi, x, t)\u0026=\\mathbb{D}_ \\text{KL} (q(x^ {t-1}|x^ {0,t})||\\pi(x^ {t-1}|x^ t)) \\\\ \\epsilon(\\pi, x, t)\u0026= ||\\epsilon - \\epsilon(x^ t, t) ||_ 2^ 2 \\end{align} $$ Here, $x_ t^ *=\\alpha_ t x_ 0^ * + \\sigma_ t \\epsilon^ *$, $\\epsilon^ * \\sim \\mathcal{N} (0, I)$ is drawn from $q$, $\\lambda_ t=\\alpha_ t^ 2/\\sigma_ t^ 2$ is signal to noise ratio, and $w(\\lambda _t)$ is the weighting function.\nSimilarly, CPO diffusion loss can be given by $$ \\begin{align} \\mathcal{L}_ \\text{CPO-diff} \u0026= -\\log (-w(\\lambda_ t)\\epsilon(\\pi_ \\theta, x_ 1, t)) -\\log \\sigma \\left[-\\beta T w(\\lambda_t)(\\epsilon (\\pi_ \\theta, x_ 1, t)-\\epsilon(\\pi_ \\theta, x_ 2, t)) \\right] \\\\ \u0026= \\mathcal{L}_ \\text{NLL-diff} + \\mathcal{L}_ \\text{preference-diff} \\end{align} $$ As CPO does, CPO diffusion loss takes advantages of lower memory consumption and computational resources as it does not need reference model. Need more experiments. (until now, 24.Jan , there is no paper or report about CPO diffusion loss.)\n",
-  "wordCount" : "295",
+  "articleBody": "Intro and Method Decision transformer is the RL method that use causal transformer to output the action using the sequences of state, action, and reward.\nFor the inputs of the transformers, state, action, and returns-to-go $\\hat R_ t= \\Sigma_ {t’=t} ^ {T} r_ {t’}$. Perhaps, we can skip returns-to-go if the reward is not diretly obtainable during the decision. The Algorithm is given as below.\nExperiments DT vs BC on a subset of data? Percentile BC, BC on only top X% of timesteps in the dataset DT is stronger when the data in the low data regimes Ability of DT to understand return-to-go return-to-go depends on the type of task and the length of the episodes E.g., larger episode length $T$ gives the larger return-to-go DT trains for specific episode length can perform well in different target return (different episode length) Extrapolation w.r.t. the return-to-go, implies the DT can understand (and generalized) across different return-to-go Effect of context length DT with context shows better performance than DT without context $K=50$ for Pong, and $K=30$ for others But the context length is related with the resources for the training and execution Long-term credit assignment and sparse reward DT is strong at long-term credit assignment in both RL and %BC DT can trained with sparse reward Other.. DT does not need policy regularization or conservatism DT takes returns-to-go as input and do not need critic $\\rightarrow$ no policy regularziation or something Benefit over other offline RL Sample efficient and poses ability to generaize over different objectives ",
+  "wordCount" : "254",
   "inLanguage": "en",
-  "datePublished": "2024-01-24T11:07:52+09:00",
-  "dateModified": "2024-01-24T11:07:52+09:00",
+  "datePublished": "2024-01-18T20:55:26+09:00",
+  "dateModified": "2024-01-18T20:55:26+09:00",
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://learnitanyway.github.io/posts/scrap/po_for_diffusion/"
+    "@id": "https://learnitanyway.github.io/posts/scrap/decision_former/"
   },
   "publisher": {
     "@type": "Organization",
@@ -215,66 +221,134 @@
   <header class="post-header">
     <div class="breadcrumbs"><a href="https://learnitanyway.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://learnitanyway.github.io/posts/">Posts</a>&nbsp;»&nbsp;<a href="https://learnitanyway.github.io/posts/scrap/">scrap</a></div>
     <h1 class="post-title entry-hint-parent">
-      [scrap, sketch] Preference Optimization for Diffusion Model
+      [scrap] Decision Transformer
     </h1>
-    <div class="post-meta"><span title='2024-01-24 11:07:52 +0900 KST'>January 24, 2024</span>&nbsp;·&nbsp;2 min
+    <div class="post-meta"><span title='2024-01-18 20:55:26 +0900 KST'>January 18, 2024</span>&nbsp;·&nbsp;2 min
 
 </div>
-  </header> 
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
 
-  <div class="post-content"><p>I&rsquo;v write some equations of <a href="/posts/scrap/dpo">DPO</a> and <a href="/posts/scrap/cpo">CPO</a>.
-Recently, <a href="https://arxiv.org/pdf/2311.12908.pdf">DPO for the diffusion model</a> has been studied, which shows the better performance for the SDXL.
-The DPO-Diffusion loss is given as
-$$
-\begin{align}
-\mathcal{L} \leq -\log \sigma \left(\beta T \log\frac{\pi_ \theta(x_ 1^ {t-1}|x_1^ t)}{\pi_ \text{ref}(x_ 1^ {t-1}|x_1^ t)} - \beta T \log\frac{\pi_ \theta(x_ 2^ {t-1}|x_1^ t)}{\pi_ \text{ref}(x_ 2^ {t-1}|x_1^ t)}\right)
-\end{align}
-$$
-where $1$ is index for the preferred data and $2$ is that for the rejected data. Superscript $t$ and $t-1$ means for the diffusion paths. The loss is given as
-$$
-\begin{align}
-\mathcal{L}_ \text{DPO-diff} &amp;=-\log \sigma \left[-\beta T (\mathbb{D}(\pi_ \theta, x_ 1, t)-\mathbb{D}(\pi_ \text{ref}, x_ 1, t)-\mathbb{D}(\pi_ \theta, x_ 2, t)+\mathbb{D}(\pi_ \text{ref}, x_ 2, t)) \right] \\
-&amp;=-\log \sigma \left[-\beta T w(\lambda_t)(\epsilon (\pi_ \theta, x_ 1, t)-\epsilon(\pi_ \text{ref}, x_ 1, t)-\epsilon(\pi_ \theta, x_ 2, t)+\epsilon(\pi_ \text{ref}, x_ 2, t)) \right]
-\end{align}
-$$
-where
-$$
-\begin{align}
-\mathbb{D} (\pi, x, t)&amp;=\mathbb{D}_ \text{KL} (q(x^ {t-1}|x^ {0,t})||\pi(x^ {t-1}|x^ t)) \\
-\epsilon(\pi, x, t)&amp;= ||\epsilon - \epsilon(x^ t, t) ||_ 2^ 2
-\end{align}
-$$
-Here, $x_ t^ *=\alpha_ t x_ 0^ * + \sigma_ t \epsilon^ *$, $\epsilon^ * \sim \mathcal{N} (0, I)$ is drawn from $q$, $\lambda_ t=\alpha_ t^ 2/\sigma_ t^ 2$ is signal to noise ratio, and $w(\lambda _t)$ is the weighting function.</p>
-<p>Similarly, CPO diffusion loss can be given by
-$$
-\begin{align}
-\mathcal{L}_ \text{CPO-diff} &amp;= -\log (-w(\lambda_ t)\epsilon(\pi_ \theta, x_ 1, t))
--\log \sigma \left[-\beta T w(\lambda_t)(\epsilon (\pi_ \theta, x_ 1, t)-\epsilon(\pi_ \theta, x_ 2, t)) \right] \\
-&amp;= \mathcal{L}_ \text{NLL-diff} + \mathcal{L}_ \text{preference-diff}
-\end{align}
-$$
-As CPO does, CPO diffusion loss takes advantages of lower memory consumption and computational resources as it does not need reference model. Need more experiments. (until now, 24.Jan , there is no paper or report about CPO diffusion loss.)</p>
+        <div class="inner"><ul>
+                <li>
+                    <a href="#intro-and-method" aria-label="Intro and Method">Intro and Method</a></li>
+                <li>
+                    <a href="#experiments" aria-label="Experiments">Experiments</a><ul>
+                        <ul>
+                        
+                <li>
+                    <a href="#dt-vs-bc-on-a-subset-of-data" aria-label="DT vs BC on a subset of data?">DT vs BC on a subset of data?</a></li>
+                <li>
+                    <a href="#ability-of-dt-to-understand-return-to-go" aria-label="Ability of DT to understand return-to-go">Ability of DT to understand return-to-go</a></li>
+                <li>
+                    <a href="#effect-of-context-length" aria-label="Effect of context length">Effect of context length</a></li>
+                <li>
+                    <a href="#long-term-credit-assignment-and-sparse-reward" aria-label="Long-term credit assignment and sparse reward">Long-term credit assignment and sparse reward</a></li>
+                <li>
+                    <a href="#other" aria-label="Other..">Other..</a>
+                </li>
+            </ul>
+            </ul>
+            </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><h1 id="intro-and-method">Intro and Method<a hidden class="anchor" aria-hidden="true" href="#intro-and-method">#</a></h1>
+<p><a href="https://arxiv.org/pdf/2106.01345.pdf">Decision transformer</a> is the RL method that use causal transformer to output the action using the sequences of state, action, and reward.</p>
+<p><img loading="lazy" src="dt_1.png" alt=""  />
+<img loading="lazy" src="/dt_1.png" alt=""  />
+
+For the inputs of the transformers, state, action, and returns-to-go $\hat R_ t= \Sigma_ {t&rsquo;=t} ^ {T} r_ {t&rsquo;}$. Perhaps, we can skip returns-to-go if the reward is not diretly obtainable during the decision.
+The Algorithm is given as below.</p>
+<p><img loading="lazy" src="dt_2.png" alt=""  />
+<img loading="lazy" src="/dt_2.png" alt=""  />
+</p>
+<h1 id="experiments">Experiments<a hidden class="anchor" aria-hidden="true" href="#experiments">#</a></h1>
+<p><img loading="lazy" src="dt_3.png" alt=""  />
+<img loading="lazy" src="/dt_3.png" alt=""  />
+</p>
+<h3 id="dt-vs-bc-on-a-subset-of-data">DT vs BC on a subset of data?<a hidden class="anchor" aria-hidden="true" href="#dt-vs-bc-on-a-subset-of-data">#</a></h3>
+<ul>
+<li>Percentile BC, BC on only top X% of timesteps in the dataset</li>
+<li>DT is stronger when the data in the low data regimes
+<img loading="lazy" src="dt_4.png" alt=""  />
+<img loading="lazy" src="/dt_4.png" alt=""  />
+</li>
+</ul>
+<h3 id="ability-of-dt-to-understand-return-to-go">Ability of DT to understand return-to-go<a hidden class="anchor" aria-hidden="true" href="#ability-of-dt-to-understand-return-to-go">#</a></h3>
+<ul>
+<li>return-to-go depends on the type of task and the length of the episodes
+<ul>
+<li>E.g., larger episode length $T$ gives the larger return-to-go</li>
+</ul>
+</li>
+<li>DT trains for specific episode length can perform well in different target return (different episode length)
+<ul>
+<li>Extrapolation w.r.t. the return-to-go, implies the DT can understand (and generalized) across different return-to-go
+<img loading="lazy" src="dt_5.png" alt=""  />
+<img loading="lazy" src="/dt_5.png" alt=""  />
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="effect-of-context-length">Effect of context length<a hidden class="anchor" aria-hidden="true" href="#effect-of-context-length">#</a></h3>
+<ul>
+<li>DT with context shows better performance than DT without context
+<ul>
+<li>$K=50$ for Pong, and $K=30$ for others</li>
+</ul>
+</li>
+<li>But the context length is related with the resources for the training and execution</li>
+</ul>
+<p><img loading="lazy" src="dt_6.png" alt=""  />
+<img loading="lazy" src="/dt_6.png" alt=""  />
+</p>
+<h3 id="long-term-credit-assignment-and-sparse-reward">Long-term credit assignment and sparse reward<a hidden class="anchor" aria-hidden="true" href="#long-term-credit-assignment-and-sparse-reward">#</a></h3>
+<ul>
+<li>DT is strong at long-term credit assignment in both RL and %BC</li>
+<li>DT can trained with sparse reward
+<img loading="lazy" src="dt_7.png" alt=""  />
+<img loading="lazy" src="/dt_7.png" alt=""  />
+</li>
+</ul>
+<h3 id="other">Other..<a hidden class="anchor" aria-hidden="true" href="#other">#</a></h3>
+<ul>
+<li>DT does not need policy regularization or conservatism
+<ul>
+<li>DT takes returns-to-go as input and do not need critic $\rightarrow$ no policy regularziation or something</li>
+</ul>
+</li>
+<li>Benefit over other offline RL
+<ul>
+<li>Sample efficient and poses  ability to generaize over different objectives</li>
+</ul>
+</li>
+</ul>
 
 
   </div>
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="https://learnitanyway.github.io/tags/diffusion/">diffusion</a></li>
-      <li><a href="https://learnitanyway.github.io/tags/rlhf/">rlhf</a></li>
-      <li><a href="https://learnitanyway.github.io/tags/scarp/">scarp</a></li>
-      <li><a href="https://learnitanyway.github.io/tags/sketch/">sketch</a></li>
+      <li><a href="https://learnitanyway.github.io/tags/rl/">RL</a></li>
+      <li><a href="https://learnitanyway.github.io/tags/il/">IL</a></li>
+      <li><a href="https://learnitanyway.github.io/tags/scrap/">scrap</a></li>
     </ul>
 <nav class="paginav">
-  <a class="prev" href="https://learnitanyway.github.io/posts/scrap/kvquant/">
+  <a class="prev" href="https://learnitanyway.github.io/posts/scrap/cpo/">
     <span class="title">« Prev</span>
     <br>
-    <span>[scrap] KVQuant - KV Cache Quantization for Long Context LLM</span>
+    <span>[scrap] CPO - contrastive preference optimization </span>
   </a>
-  <a class="next" href="https://learnitanyway.github.io/posts/scrap/cpo/">
+  <a class="next" href="https://learnitanyway.github.io/posts/scrap/rt-2/">
     <span class="title">Next »</span>
     <br>
-    <span>[scrap] CPO - contrastive preference optimization </span>
+    <span>[scrap] Robotic Transformer 2</span>
   </a>
 </nav>
 

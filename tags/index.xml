@@ -11,8 +11,15 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 24 Jan 2024 11:07:52 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 04 Feb 2024 12:47:47 +0900</lastBuildDate>
     <atom:link href="https://learnitanyway.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>scrap</title>
+      <link>https://learnitanyway.github.io/tags/scrap/</link>
+      <pubDate>Sun, 04 Feb 2024 12:47:47 +0900</pubDate>
+      <guid>https://learnitanyway.github.io/tags/scrap/</guid>
+      <description></description>
+    </item>
     <item>
       <title>diffusion</title>
       <link>https://learnitanyway.github.io/tags/diffusion/</link>
@@ -42,17 +49,17 @@
       <description></description>
     </item>
     <item>
-      <title>scrap</title>
-      <link>https://learnitanyway.github.io/tags/scrap/</link>
-      <pubDate>Tue, 23 Jan 2024 16:19:43 +0900</pubDate>
-      <guid>https://learnitanyway.github.io/tags/scrap/</guid>
+      <title>IL</title>
+      <link>https://learnitanyway.github.io/tags/il/</link>
+      <pubDate>Thu, 18 Jan 2024 20:55:26 +0900</pubDate>
+      <guid>https://learnitanyway.github.io/tags/il/</guid>
       <description></description>
     </item>
     <item>
-      <title>IL</title>
-      <link>https://learnitanyway.github.io/tags/il/</link>
-      <pubDate>Thu, 18 Jan 2024 20:55:20 +0900</pubDate>
-      <guid>https://learnitanyway.github.io/tags/il/</guid>
+      <title>RL</title>
+      <link>https://learnitanyway.github.io/tags/rl/</link>
+      <pubDate>Thu, 18 Jan 2024 20:55:26 +0900</pubDate>
+      <guid>https://learnitanyway.github.io/tags/rl/</guid>
       <description></description>
     </item>
     <item>

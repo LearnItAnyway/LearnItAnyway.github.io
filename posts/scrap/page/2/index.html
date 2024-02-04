@@ -193,6 +193,32 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">[test] Difference between encodec and descript audio codec
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Motivation During Dec., 2023, I’v pretrain the VALL-E model for Korean. Specifically, the pretrained model is released at the huggingface, however, as the pronounciation of the model and voice cloning ability is somewhat low due to 2k hours (from one data source) of the training data. To improve further, a new model has been trained with 8k hours (from 3 data sources) of the data, however, it shows much lower performance compared with the prior model, even though the almost every setup are identical....</p>
+  </div>
+  <footer class="entry-footer"><span title='2024-01-16 09:54:10 +0900 KST'>January 16, 2024</span>&nbsp;·&nbsp;2 min</footer>
+  <a class="entry-link" aria-label="post link to [test] Difference between encodec and descript audio codec" href="https://learnitanyway.github.io/posts/scrap/diff_in_encodec/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">[scrap] AWQ - activation-aware weight quantization
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Introduction Quantization methods map a floating poitn number into the integer. E.g., float 16 can be maps to the int 4 with a certain amount of quantization error, where both the memory usage and inference speed can be improved. Among them, activation-aware weight quantization (AWQ) scale the weight considering the activation of the group of values.
+Method Motivation of activation-aware weight quantization is that
+Some weight are more salient than the other Considering the activation not the weight, the introducing some scaler can be improved The quantization function in AWQ is defined as...</p>
+  </div>
+  <footer class="entry-footer"><span title='2024-01-15 11:28:06 +0900 KST'>January 15, 2024</span>&nbsp;·&nbsp;2 min</footer>
+  <a class="entry-link" aria-label="post link to [scrap] AWQ - activation-aware weight quantization" href="https://learnitanyway.github.io/posts/scrap/awq/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">[scrap] DPO - direct preference optimization 
     </h2>
   </header>

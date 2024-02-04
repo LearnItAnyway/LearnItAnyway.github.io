@@ -2,13 +2,25 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://learnitanyway.github.io/posts/scrap/kvquant/</loc>
+    <lastmod>2024-02-04T12:47:47+09:00</lastmod>
+  </url><url>
+    <loc>https://learnitanyway.github.io/posts/</loc>
+    <lastmod>2024-02-04T12:47:47+09:00</lastmod>
+  </url><url>
+    <loc>https://learnitanyway.github.io/tags/scrap/</loc>
+    <lastmod>2024-02-04T12:47:47+09:00</lastmod>
+  </url><url>
+    <loc>https://learnitanyway.github.io/posts/scrap/</loc>
+    <lastmod>2024-02-04T12:47:47+09:00</lastmod>
+  </url><url>
+    <loc>https://learnitanyway.github.io/tags/</loc>
+    <lastmod>2024-02-04T12:47:47+09:00</lastmod>
+  </url><url>
     <loc>https://learnitanyway.github.io/posts/scrap/po_for_diffusion/</loc>
     <lastmod>2024-01-24T11:07:52+09:00</lastmod>
   </url><url>
     <loc>https://learnitanyway.github.io/tags/diffusion/</loc>
-    <lastmod>2024-01-24T11:07:52+09:00</lastmod>
-  </url><url>
-    <loc>https://learnitanyway.github.io/posts/</loc>
     <lastmod>2024-01-24T11:07:52+09:00</lastmod>
   </url><url>
     <loc>https://learnitanyway.github.io/tags/rlhf/</loc>
@@ -17,25 +29,22 @@
     <loc>https://learnitanyway.github.io/tags/scarp/</loc>
     <lastmod>2024-01-24T11:07:52+09:00</lastmod>
   </url><url>
-    <loc>https://learnitanyway.github.io/posts/scrap/</loc>
-    <lastmod>2024-01-24T11:07:52+09:00</lastmod>
-  </url><url>
     <loc>https://learnitanyway.github.io/tags/sketch/</loc>
-    <lastmod>2024-01-24T11:07:52+09:00</lastmod>
-  </url><url>
-    <loc>https://learnitanyway.github.io/tags/</loc>
     <lastmod>2024-01-24T11:07:52+09:00</lastmod>
   </url><url>
     <loc>https://learnitanyway.github.io/posts/scrap/cpo/</loc>
     <lastmod>2024-01-23T16:19:43+09:00</lastmod>
   </url><url>
-    <loc>https://learnitanyway.github.io/tags/scrap/</loc>
-    <lastmod>2024-01-23T16:19:43+09:00</lastmod>
-  </url><url>
-    <loc>https://learnitanyway.github.io/posts/scrap/rt-2/</loc>
-    <lastmod>2024-01-18T20:55:20+09:00</lastmod>
+    <loc>https://learnitanyway.github.io/posts/scrap/decision_former/</loc>
+    <lastmod>2024-01-18T20:55:26+09:00</lastmod>
   </url><url>
     <loc>https://learnitanyway.github.io/tags/il/</loc>
+    <lastmod>2024-01-18T20:55:26+09:00</lastmod>
+  </url><url>
+    <loc>https://learnitanyway.github.io/tags/rl/</loc>
+    <lastmod>2024-01-18T20:55:26+09:00</lastmod>
+  </url><url>
+    <loc>https://learnitanyway.github.io/posts/scrap/rt-2/</loc>
     <lastmod>2024-01-18T20:55:20+09:00</lastmod>
   </url><url>
     <loc>https://learnitanyway.github.io/tags/llm/</loc>
